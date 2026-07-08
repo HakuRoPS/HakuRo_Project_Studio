@@ -329,3 +329,29 @@ nav a:hover{
     color:#7ca982;
 
 }
+
+/* -------------------------
+   Breadcrumb
+------------------------- */
+
+.breadcrumb{
+
+    max-width:1100px;
+
+    margin:20px auto;
+
+    padding:0 20px;
+
+    color:#777;
+
+    font-size:.9rem;
+
+}
+
+.breadcrumb a{
+
+    color:#56785c;
+
+    text-decoration:none;
+
+}
