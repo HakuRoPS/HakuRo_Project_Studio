@@ -1,46 +1,145 @@
 body {
     margin: 0;
-    font-family: sans-serif;
-    background: #f5f5f5;
+    font-family: "Yu Gothic", sans-serif;
+    background: #f6f8f2;
     color: #333;
+    line-height: 1.8;
 }
+
+/* ヘッダー */
 
 header {
-    background: #1f2937;
+
+    background: linear-gradient(#7ca982,#5d8c66);
+
     color: white;
-    padding: 25px;
+
     text-align: center;
+
+    padding: 50px 20px;
+
 }
 
-header h1 {
-    margin: 0;
+header h1{
+
+    margin:0;
+
+    font-size:2.4em;
+
 }
 
-main {
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
+header p{
+
+    margin-top:10px;
+
+    opacity:0.9;
+
 }
 
-.card {
-    background: white;
-    margin: 15px 0;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+/* 本文 */
+
+main{
+
+    max-width:900px;
+
+    margin:auto;
+
+    padding:30px 20px;
+
 }
 
-a {
-    color: #2563eb;
-    text-decoration: none;
+/* カード */
+
+.card{
+
+    background:white;
+
+    margin:25px 0;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+
+    transition:.3s;
+
 }
 
-a:hover {
-    text-decoration: underline;
+/* ホバー */
+
+.card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 12px 30px rgba(0,0,0,.12);
+
 }
 
-footer {
-    text-align: center;
-    color: #777;
-    margin: 40px 0;
+/* リンク */
+
+a{
+
+    color:#3d6d46;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+a:hover{
+
+    color:#6aa16f;
+
+}
+
+/* フッター */
+
+footer{
+
+    margin-top:60px;
+
+    padding:30px;
+
+    text-align:center;
+
+    background:#eef3ea;
+
+    color:#666;
+
+}
+
+/* Hero */
+
+.hero{
+
+    text-align:center;
+
+    padding:50px 20px;
+
+}
+
+.hero h2{
+
+    font-size:2em;
+
+}
+
+/* スマホ */
+
+@media(max-width:700px){
+
+header h1{
+
+font-size:1.8em;
+
+}
+
+.card{
+
+padding:20px;
+
+}
+
 }
