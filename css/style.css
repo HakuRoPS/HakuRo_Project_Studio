@@ -455,3 +455,33 @@ header h1{
     }
 
 }
+
+/* ===========================
+   Section Title
+=========================== */
+
+.card h2{
+
+    border-left:6px solid #4f7c54;
+
+    padding-left:12px;
+
+    margin-bottom:16px;
+
+}
+
+.card ul{
+
+    margin:0;
+
+    padding-left:24px;
+
+}
+
+.card li{
+
+    margin-bottom:10px;
+
+    line-height:1.7;
+
+}
