@@ -485,3 +485,47 @@ header h1{
     line-height:1.7;
 
 }
+
+/* ===========================
+   App Card
+=========================== */
+
+.app-card{
+
+    transition:0.25s;
+
+}
+
+.app-card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.app-card h3{
+
+    margin-top:0;
+
+    margin-bottom:10px;
+
+}
+
+.app-card p{
+
+    margin-bottom:12px;
+
+}
+
+.app-link{
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+.app-link:hover{
+
+    text-decoration:underline;
+
+}
