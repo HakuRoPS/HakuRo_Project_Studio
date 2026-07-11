@@ -403,3 +403,27 @@ header h1{
     text-decoration: underline;
 
 }
+
+/* ===========================
+   Status
+=========================== */
+
+.status{
+
+    display:inline-block;
+
+    margin-top:12px;
+
+    padding:5px 12px;
+
+    border-radius:999px;
+
+    background:#e8f4ea;
+
+    color:#2f6d3f;
+
+    font-size:0.9rem;
+
+    font-weight:bold;
+
+}
