@@ -1,0 +1,143 @@
+
+<div class="app-info">
+
+<h2>Foodlog</h2>
+
+<p>
+
+タスクを管理するアプリ。
+
+</p>
+
+<div class="status">
+
+公開予定
+
+</div>
+
+<br>
+
+<a class="app-link" href="termkeeper.html">
+
+詳しく見る →
+
+</a>
+
+</div>
+
+</section>
+
+    <!-- （カード）アプリについて -->
+<section class="card">
+
+    <h2>アプリについて</h2>
+
+    <p>
+        Term KEEPER は、ご自身が行っているタスクの期日や、
+　　</p>
+
+    <p>
+
+　　　　 予定までの期間をシンプルに管理するためのアプリです。
+    </p>
+
+    <p>
+        「お仕事」に役立てるほか、「ご趣味」の目標測定などを
+　　　　 少しだけ真面目にやってみたい方向けに作成しています。
+    </p>
+
+</section>
+ <!-- （カード）スクリーンショットについて -->
+<section class="card">
+
+<h2>スクリーンショット</h2>
+
+<p>
+
+公開までにアプリ画面を掲載予定です。
+
+</p>
+
+</section>
+
+    <!-- （カード）ダウンロードについて -->
+    <section class="card">
+
+<h2>ダウンロード</h2>
+
+<p>
+
+公開後にリンクを掲載します。
+
+</p>
+
+</section>
+
+<!-- （カード）主な機能について -->
+<section class="card">
+
+    <h2>主な機能</h2>
+
+<ul>
+    <li>進行中のタスク管理</li>
+    <li>完了タスクの管理</li>
+    <li>現時点での達成率</li>
+    <li>直近で完了させないといけないタスクの管理</li>
+    <li>期限超過のお知らせ</li>
+    <li>忘れたくないタスクを一つメモ</li>
+</ul>
+</section>
+    
+    <!-- （カード）更新履歴について -->
+<section class="card">
+    <h2>📝 更新履歴</h2>
+    <p>
+        開発中
+    </p>
+</section>
+
+     <!-- （カード）プライバシーポリシーについて -->
+<section class="card">
+<h2>プライバシーポリシー</h2>
+<p>
+Term KEEPER のプライバシーポリシーはこちらからご確認いただけます。
+
+</p>
+
+<p>
+
+<a href="../privacy/taermkeeper.html">
+
+プライバシーポリシーを見る →
+
+</a>
+
+</p>
+
+</section>
+
+<p style="margin-top:40px;">
+
+<a href="index.html">
+
+← Appsへ戻る
+
+</a>
+
+</p>
+
+</main>
+
+<footer>
+
+<p>
+
+© 2026 HakuRo Project Studio
+
+</p>
+
+</footer>
+
+</body>
+
+</html>
