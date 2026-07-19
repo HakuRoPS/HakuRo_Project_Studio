@@ -1,0 +1,77 @@
+/* ==========================
+   Carousel
+========================== */
+
+.carousel{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.carousel-track{
+
+    display:flex;
+
+    gap:20px;
+
+    flex:1;
+
+    overflow-x:auto;
+
+    scroll-behavior:smooth;
+
+    scrollbar-width:none;
+
+}
+
+.carousel-track::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.carousel-track img{
+
+    width:240px;
+
+    height:auto;
+
+    flex-shrink:0;
+
+    border-radius:16px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+
+}
+
+.carousel-btn{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#5f8966;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:22px;
+
+    transition:.2s;
+
+}
+
+.carousel-btn:hover{
+
+    background:#4f7c54;
+
+}
