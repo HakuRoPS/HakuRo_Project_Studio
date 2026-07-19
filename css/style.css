@@ -366,6 +366,26 @@ header h1{
 
 }
 
+.app-icon{
+
+    width:90px;
+
+    height:90px;
+
+}
+
+.app-icon img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+}
+
 /* ===========================
    App Card
 =========================== */
