@@ -1,0 +1,119 @@
+/* ==========================
+   Layout
+========================== */
+
+/* -------------------------
+   Header
+------------------------- */
+
+header{
+
+    background:linear-gradient(135deg,#6f9c74,#88b48c);
+
+    color:white;
+
+    text-align:center;
+
+    padding:60px 20px;
+
+}
+
+header h1{
+
+    font-size:2.8rem;
+
+    margin-bottom:10px;
+
+}
+
+header p{
+
+    font-size:1.2rem;
+
+}
+
+/* -------------------------
+   Main
+------------------------- */
+
+main{
+
+    max-width:1100px;
+
+    margin:40px auto;
+
+    padding:0 20px;
+
+}
+
+/* -------------------------
+   Hero
+------------------------- */
+
+.hero{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:60px 30px;
+
+    margin-bottom:30px;
+
+    text-align:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.hero h2{
+
+    color:#5f8966;
+
+    font-size:2.3rem;
+
+    margin-bottom:20px;
+
+}
+
+.hero p{
+
+    font-size:1.1rem;
+
+}
+
+/* -------------------------
+   Grid
+------------------------- */
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:20px;
+
+}
+
+/* -------------------------
+   Footer
+------------------------- */
+
+footer{
+
+    margin-top:60px;
+
+    padding:40px 20px;
+
+    background:#e8efe5;
+
+    text-align:center;
+
+}
+
+footer h3{
+
+    margin-bottom:15px;
+
+}
