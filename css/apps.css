@@ -1,0 +1,126 @@
+/* ==========================
+   Apps
+========================== */
+
+/* -------------------------
+   App Grid
+------------------------- */
+
+.app-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+    gap:24px;
+
+    margin-top:24px;
+
+}
+
+/* -------------------------
+   App Card
+------------------------- */
+
+.app-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:20px;
+
+    transition:.25s;
+
+}
+
+.app-card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+/* -------------------------
+   App Icon
+------------------------- */
+
+.app-icon{
+
+    width:90px;
+
+    height:90px;
+
+    flex-shrink:0;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    background:#f4f4f4;
+
+}
+
+.app-icon img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+/* -------------------------
+   App Info
+------------------------- */
+
+.app-info{
+
+    flex:1;
+
+}
+
+.app-info h2,
+.app-info h3{
+
+    margin-bottom:10px;
+
+}
+
+/* -------------------------
+   Detail Header
+------------------------- */
+
+.app-detail-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:24px;
+
+    margin-top:20px;
+
+}
+
+/* -------------------------
+   App Image
+------------------------- */
+
+.app-image{
+
+    height:240px;
+
+    border-radius:18px;
+
+    background:#eef3ea;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
