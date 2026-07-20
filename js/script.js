@@ -118,3 +118,13 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
         update();
 
     });
+
+@media (max-width:700px){
+
+    .carousel{
+
+        max-width:280px;
+
+    }
+
+}
