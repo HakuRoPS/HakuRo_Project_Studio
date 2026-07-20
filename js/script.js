@@ -12,9 +12,7 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
 
     function update() {
 
-        const slideWidth = carousel.querySelector(".carousel-window").clientWidth;
-
-        track.style.transform = `translateX(-${current * slideWidth}px)`;
+        track.style.transform = `translateX(-${current * 100}%)`;
 
         dots.forEach((dot, index) => {
             dot.classList.toggle("active", index === current);
@@ -22,45 +20,41 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
 
     }
 
-    // -----------------------------
-    // 次へ
-    // -----------------------------
-
-    nextBtn.addEventListener("click", () => {
+    function nextSlide() {
 
         current++;
 
-        if (current >= slides.length) {
+        if(current >= slides.length){
+
             current = 0;
+
         }
 
         update();
 
-    });
+    }
 
-    // -----------------------------
-    // 前へ
-    // -----------------------------
-
-    prevBtn.addEventListener("click", () => {
+    function prevSlide() {
 
         current--;
 
-        if (current < 0) {
+        if(current < 0){
+
             current = slides.length - 1;
+
         }
 
         update();
 
-    });
+    }
 
-    // -----------------------------
-    // ドット
-    // -----------------------------
+    nextBtn.addEventListener("click", nextSlide);
 
-    dots.forEach((dot, index) => {
+    prevBtn.addEventListener("click", prevSlide);
 
-        dot.addEventListener("click", () => {
+    dots.forEach((dot,index)=>{
+
+        dot.addEventListener("click",()=>{
 
             current = index;
 
@@ -70,53 +64,37 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
 
     });
 
-    // -----------------------------
-    // スワイプ
-    // -----------------------------
+    // --------------------
+    // Swipe
+    // --------------------
 
     let startX = 0;
 
-    track.addEventListener("touchstart", (e) => {
+    track.addEventListener("touchstart",(e)=>{
 
         startX = e.touches[0].clientX;
 
     });
 
-    track.addEventListener("touchend", (e) => {
+    track.addEventListener("touchend",(e)=>{
 
-        const endX = e.changedTouches[0].clientX;
+        const diff = e.changedTouches[0].clientX - startX;
 
-        const diff = endX - startX;
+        if(Math.abs(diff) < 50) return;
 
-        if (Math.abs(diff) < 50) return;
+        if(diff < 0){
 
-        if (diff < 0) {
+            nextSlide();
 
-            current++;
+        }else{
 
-            if (current >= slides.length) {
-                current = 0;
-            }
-
-        } else {
-
-            current--;
-
-            if (current < 0) {
-                current = slides.length - 1;
-            }
+            prevSlide();
 
         }
 
-        update();
-
     });
 
-    // -----------------------------
-    // リサイズ対応
-    // -----------------------------
-
-    window.addEventListener("resize", update);
+    window.addEventListener("resize",update);
 
     update();
 
