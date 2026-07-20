@@ -3,67 +3,74 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
     const track = carousel.querySelector(".carousel-track");
     const slides = carousel.querySelectorAll(".carousel-track img");
 
-    const prev = carousel.querySelector(".prev");
-    const next = carousel.querySelector(".next");
+    const prevBtn = carousel.querySelector(".prev");
+    const nextBtn = carousel.querySelector(".next");
 
     const dots = carousel.querySelectorAll(".dot");
 
-    let index = 0;
+    let current = 0;
 
-    function updateCarousel() {
+    function update() {
 
-        track.style.transform = `translateX(-${index * 100}%)`;
+        const slideWidth = slides[0].clientWidth;
 
-        dots.forEach((dot, i) => {
+        track.style.transform =
+            `translateX(-${current * slideWidth}px)`;
 
-            dot.classList.toggle("active", i === index);
+        dots.forEach((dot, index) => {
+
+            if (index === current) {
+                dot.classList.add("active");
+            } else {
+                dot.classList.remove("active");
+            }
 
         });
 
     }
 
-    next.addEventListener("click", () => {
+    nextBtn.addEventListener("click", () => {
 
-        index++;
+        current++;
 
-        if (index >= slides.length) {
+        if (current >= slides.length) {
 
-            index = 0;
-
-        }
-
-        updateCarousel();
-
-    });
-
-    prev.addEventListener("click", () => {
-
-        index--;
-
-        if (index < 0) {
-
-            index = slides.length - 1;
+            current = 0;
 
         }
 
-        updateCarousel();
+        update();
 
     });
 
-    // ドットを押して移動
+    prevBtn.addEventListener("click", () => {
 
-    dots.forEach((dot, i) => {
+        current--;
+
+        if (current < 0) {
+
+            current = slides.length - 1;
+
+        }
+
+        update();
+
+    });
+
+    dots.forEach((dot, index) => {
 
         dot.addEventListener("click", () => {
 
-            index = i;
+            current = index;
 
-            updateCarousel();
+            update();
 
         });
 
     });
 
-    updateCarousel();
+    window.addEventListener("resize", update);
+
+    update();
 
 });
