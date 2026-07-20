@@ -74,3 +74,47 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
     update();
 
 });
+
+    // ----- スワイプ対応 -----
+
+    let startX = 0;
+    let endX = 0;
+
+    track.addEventListener("touchstart", (e) => {
+
+        startX = e.touches[0].clientX;
+
+    });
+
+    track.addEventListener("touchend", (e) => {
+
+        endX = e.changedTouches[0].clientX;
+
+        const diff = endX - startX;
+
+        // 50px以上動いたら判定
+        if (Math.abs(diff) < 50) return;
+
+        if (diff < 0) {
+
+            // 左へスワイプ → 次へ
+            current++;
+
+            if (current >= slides.length) {
+                current = 0;
+            }
+
+        } else {
+
+            // 右へスワイプ → 前へ
+            current--;
+
+            if (current < 0) {
+                current = slides.length - 1;
+            }
+
+        }
+
+        update();
+
+    });
