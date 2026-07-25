@@ -10,11 +10,11 @@
 
     display:grid;
 
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    grid-template-columns:repeat(auto-fit,280px);
 
-    gap:24px;
+    justify-content:center;
 
-    margin-top:24px;
+    gap:20px;
 
 }
 
@@ -24,21 +24,25 @@
 
 .app-card{
 
-    display:flex;
+    background:#ffffff;
 
-    align-items:center;
-
-    gap:20px;
+    border-radius:16px;
 
     padding:20px;
 
-    transition:.25s;
+    text-align:center;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+
+    transition:.2s;
 
 }
 
 .app-card:hover{
 
     transform:translateY(-4px);
+
+    box-shadow:0 8px 18px rgba(0,0,0,.12);
 
 }
 
