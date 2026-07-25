@@ -7,15 +7,10 @@
 ------------------------- */
 
 .app-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,280px);
-
-    justify-content:center;
-
-    gap:20px;
-
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 280px);
+    justify-content: center;
+    gap: 20px;
 }
 
 /* -------------------------
