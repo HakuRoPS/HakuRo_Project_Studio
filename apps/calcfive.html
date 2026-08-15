@@ -17,6 +17,20 @@
 <link rel="stylesheet" href="../css/gallery.css">
 <link rel="stylesheet" href="../css/carousel.css">
 <link rel="stylesheet" href="../css/responsive.css">
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KYFJBWW1S9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KYFJBWW1S9');
+
+    </script>
+
+
+ 
 </head>
 <!-- （カード）アプリタイトル -->
 <body>
@@ -96,19 +110,38 @@
 </section>
 
     
-<!-- （カード）スクリーンショットについて -->
-<section class="card">
+ <!-- （カード）スクリーンショットについて -->
+<section class="card screenshot-card">
 
     <h2>スクリーンショット</h2>
 
-    <p>
+    <div class="carousel">
+        <div class="carousel-window">
+            <div class="carousel-track">
+                <img src="../images/screenshots/calcfive/01_calcfive_home.png" alt="ホーム画面">
+                <img src="../images/screenshots/calcfive/02_calcfive_homedm.png" alt="DMホーム画面">
+                <img src="../images/screenshots/calcfive/03_calcfive_favorite.png" alt="お気に入り">
+            </div>
+        </div>
+        <div class="carousel-controls">
+            <button class="carousel-btn prev" type="button" aria-label="前へ">
+                &#10094;
+            </button>
+            <div class="carousel-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
 
-        公開までにアプリ画面を掲載予定です。
+            <button class="carousel-btn next" type="button" aria-label="次へ">
+                &#10095;
+            </button>
 
-    </p>
+        </div>
+
+    </div>
 
 </section>
-
 
 
 <!-- （カード）主な機能について -->
