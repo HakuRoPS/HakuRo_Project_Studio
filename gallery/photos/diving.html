@@ -1,24 +1,21 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="ja">
+  <head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link rel="icon" type="image/png" href="images/web_icon.png">
+    <link rel="icon" type="image/png" href="images/web_icon.png">
+    
+    <title>水中写真 | HakuRo Project Studio</title> 
+    <link rel="icon" href="../../images/favicon.png" type="image/png"> 
+    <link rel="stylesheet" href="../../css/base.css"> 
+    <link rel="stylesheet" href="../../css/layout.css"> 
+    <link rel="stylesheet" href="../../css/components.css"> 
+    <link rel="stylesheet" href="../../css/gallery.css"> 
+    <link rel="stylesheet" href="../../css/carousel.css"> 
+    <link rel="stylesheet" href="../../css/responsive.css"> 
   
-<title>Gallery | HakuRo Project Studio</title>
-
-<link rel="stylesheet" href="../css/base.css">
-<link rel="stylesheet" href="../css/layout.css">
-<link rel="stylesheet" href="../css/components.css">
-<link rel="stylesheet" href="../css/apps.css">
-<link rel="stylesheet" href="../css/gallery.css">
-<link rel="stylesheet" href="../css/carousel.css">
-<link rel="stylesheet" href="../css/responsive.css">
-
-<!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KYFJBWW1S9"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -28,155 +25,107 @@
   gtag('config', 'G-KYFJBWW1S9');
 
     </script>
-     
-</head>
-
-<body>
-
-<header>
-
-<h1>Gallery</h1>
-
-<p>ダイビング・水中写真</p>
-
-</header>
-
-<main>
-
-<div class="breadcrumb">
-
-<a href="../index.html">Home</a>
-
-<span>＞</span>
-
-<span>Gallery</span>
-
-</div>
-
-<!-- ==========================
-     Hero
-========================== -->
-
-<section class="hero">
-
-    <h2>水中フォト</h2>
-
-    <p>
-
-        HakuRo Project Studio の作品やキャラクター、
-        写真などを展示しています。
-
-    </p>
-
-<div class="app-icon">
-
-<!-- アイコンは後で追加 -->
- <img src="../images/apps/calcV_icon.png"
-     alt="calcFIVE">
-</div>
-
-<h2>クマノミ</h2>
-
-<p>
-
-履歴やお気に入り機能を備えた、
-シンプルで使いやすい電卓アプリです。
-
-</p>
-
-
-  
-
-</section>
-
-<!-- ==========================
-     Characters
-
-
-<section class="card">
-
-    <h2>Characters</h2>
-
-    <p>
-
-        HakuRo Project Studio の仲間たちを紹介しています。
-
-    </p>
-
-    <p>
-
-        <a class="app-link" href="characters.html">
-
-            キャラクター紹介 →
-
-        </a>
-
-    </p>
-
-</section>
-     ========================== -->
-
-
-     <!-- ==========================
-     Photo Gallery
-========================== -->
-
-<section class="card">
-
-    <h2>Photo Gallery</h2>
-
-    <p>
-
-        風景や日常の写真を掲載予定です。
-
-    </p>
-
-</section>
-
-     <!-- ==========================
-     Illustrations
-========================== -->
-
-<section class="card">
-
-    <h2>Illustrations</h2>
-
-    <p>
-
-        イラスト作品を掲載予定です。
-
-    </p>
-
-</section>
-
-     <!-- ==========================
-     Music
-========================== -->
-
-<section class="card">
-
-    <h2>Music</h2>
-
-    <p>
-
-        ギター演奏や音楽作品を掲載予定です。
-
-    </p>
-
-</section>
-
-</div>
-
-  
-
-</main>
-
-<footer>
-
-<p>© 2026 HakuRo Project Studio</p>
-
-</footer>
-
-</body>
-
+    
+  </head> 
+  <body>
+    <header>
+      <h1>水中写真</h1>
+      <p>HakuRo Project Studio Gallery</p>
+    </header>
+    <main> 
+      <!-- ========================== Breadcrumb ========================== -->
+      <div class="breadcrumb"> 
+        <a href="../../index.html">Home</a> 
+        <span>＞</span> 
+        <a href="../index.html">Gallery</a>
+        <span>＞</span> 
+        <span>水中写真</span>
+      </div> 
+      <!-- ========================== Introduction ========================== --> 
+      <section class="card"> 
+        <h2>水中写真</h2> 
+        <p> 海の中で出会った生き物や風景を撮影した写真を展示しています。 </p> 
+        <p> ダイビングで出会った生き物たちを、 少しずつ記録していきます。 </p>
+      </section>
+      <!-- ========================== クマノミ ========================== -->
+      <section class="card"> 
+        <h2>クマノミ</h2> 
+        <p> 海の中で出会ったクマノミの写真です。 </p> 
+        <div class="carousel"> 
+          <div class="carousel-window"> 
+          <div class="carousel-track">
+          <img src="../../images/gallery/diving/clownfish/01.jpg" alt="クマノミの写真"> 
+            <img src="../../images/gallery/diving/clownfish/02.jpg" alt="クマノミの写真">
+            <img src="../../images/gallery/diving/clownfish/03.jpg" alt="クマノミの写真"> 
+          </div> </div> <div class="carousel-controls"> 
+            <button class="carousel-btn prev" aria-label="前へ"> &#10094;
+            </button> <div class="carousel-dots">
+              <span class="dot active"></span> 
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div> 
+            <button class="carousel-btn next" aria-label="次へ"> &#10095; 
+            </button> </div> </div> </section> 
+      
+      <!-- ========================== イカ ========================== --> 
+      <section class="card"> 
+        <h2>イカ</h2> 
+        <p> 海中で出会ったイカの写真です。 </p> 
+        <div class="carousel">
+          <div class="carousel-window"> 
+          <div class="carousel-track">
+            <img src="../../images/gallery/diving/squid/01.jpg" alt="イカの写真">
+            <img src="../../images/gallery/diving/squid/02.jpg" alt="イカの写真">
+            <img src="../../images/gallery/diving/squid/03.jpg" alt="イカの写真"> 
+          </div> 
+          </div> 
+          <div class="carousel-controls">
+            <button class="carousel-btn prev" aria-label="前へ"> &#10094; </button> 
+            <div class="carousel-dots">
+              <span class="dot active"></span>
+              <span class="dot"></span> 
+              <span class="dot"></span>
+            </div> 
+            <button class="carousel-btn next" aria-label="次へ"> &#10095; </button> 
+          </div> 
+        </div> 
+      </section> 
+      
+      <!-- ========================== ウミガメ ========================== --> 
+      <section class="card"> <h2>ウミガメ</h2> <p> ダイビング中に出会ったウミガメの写真です。 </p> 
+        <div class="carousel"> 
+          <div class="carousel-window"> 
+          <div class="carousel-track"> 
+          <img src="../../images/gallery/diving/turtle/01.jpg" alt="ウミガメの写真"> 
+            <img src="../../images/gallery/diving/turtle/02.jpg" alt="ウミガメの写真"> 
+            <img src="../../images/gallery/diving/turtle/03.jpg" alt="ウミガメの写真"> 
+            <img src="../../images/gallery/diving/turtle/04.jpg" alt="ウミガメの写真"> 
+          </div> 
+          </div> 
+          <div class="carousel-controls">
+            <button class="carousel-btn prev" aria-label="前へ"> &#10094;
+            </button> <div class="carousel-dots">
+              <span class="dot active"></span> 
+              <span class="dot"></span> 
+              <span class="dot"></span> 
+              <span class="dot"></span> 
+            </div>
+            <button class="carousel-btn next" aria-label="次へ"> &#10095; </button> 
+          </div>
+        </div>
+      </section>
+      
+      <!-- ========================== Galleryへ戻る ========================== -->
+      <p style="margin-top:40px;">
+        <a href="../index.html"> ← Galleryへ戻る </a>
+      </p> 
+    </main> 
+    <footer> 
+      <p> © 2026 HakuRo Project Studio </p> 
+    </footer>
+    <script src="../../js/script.js">
+      
+    </script> 
+  </body>
 </html>
+
