@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+ 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" href="../images/web_icon.png" type="image/png">
+
+    <title>Foodlog | HakuRo Project Studio</title>
+
+    <link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/apps.css">
+<link rel="stylesheet" href="../css/gallery.css">
+<link rel="stylesheet" href="../css/carousel.css">
+<link rel="stylesheet" href="../css/responsive.css">
+
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KYFJBWW1S9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KYFJBWW1S9');
+
+    </script>
+ 
+</head>
+<!-- （カード）アプリタイトル -->
+<body>
+
+<header>
+
+    <h1>Foodlog</h1>
+
+    <p>食材管理アプリ</p>
+
+</header>
+
+<main>
+
+<div class="breadcrumb">
+
+<a href="../index.html">Home</a>
+
+<span>＞</span>
+
+<a href="index.html">Apps</a>
+
+<span>＞</span>
+
+<span>Foodlog</span>
+
+</div>
+ 
+<section class="hero">
+
+<div class="app-icon">
+ 
+<!-- アイコンは後で追加 -->
+ <img src="../images/apps/foodlog_icon.png"
+     alt="Foodlog">
+ 
+</div>
+ 
+<h2>Foodlog</h2>
+
+<p>
+食材をシンプルに管理するためのアプリです。
+</p>
+
+<p>
+<strong>公開状況：</strong>公開中
+</p>
+
+</section>
+
+    <!-- （カード）アプリについて -->
+<section class="card">
+
+    <h2>アプリについて</h2>
+
+    <p>
+        Foodlog は、家庭の食材をシンプルに管理するためのアプリです。
+    </p>
+
+    <p>
+        冷蔵・冷凍・常温ごとに食材を整理し、
+        在庫数や賞味期限を一目で確認できます。
+    </p>
+
+    <p>
+        「買い忘れ」や「使い忘れ」を減らし、
+        毎日の食材管理を少しだけ楽にすることを目指しています。
+    </p>
+
+</section>
+ <!-- （カード）スクリーンショットについて -->
+<section class="card screenshot-card">
+
+    <h2>スクリーンショット</h2>
+
+    <div class="carousel">
+        <div class="carousel-window">
+            <div class="carousel-track">
+                <img src="../images/screenshots/foodlog/01_foodlist.png" alt="一覧画面">
+                <img src="../images/screenshots/foodlog/02_foodlist_caution.png" alt="要購入">
+                <img src="../images/screenshots/foodlog/03_foodlist_DM.png" alt="ダークモード">
+                <img src="../images/screenshots/foodlog/04_foodadd.png" alt="追加画面">
+            </div>
+        </div>
+        <div class="carousel-controls">
+            <button class="carousel-btn prev" type="button" aria-label="前へ">
+                &#10094;
+            </button>
+            <div class="carousel-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+
+            <button class="carousel-btn next" type="button" aria-label="次へ">
+                &#10095;
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- （カード）主な機能について -->
+<section class="card">
+
+    <h2>主な機能</h2>
+
+<ul>
+    <li>食材の在庫管理</li>
+    <li>賞味期限・消費期限の管理</li>
+    <li>冷蔵・冷凍・常温で分類</li>
+    <li>在庫数の増減を簡単に操作</li>
+    <li>食材の検索・並び替え</li>
+    <li>購入目安（要購入）の管理</li>
+</ul>
+</section>
+
+ <!-- （カード）ダウンロードについて -->
+    <section class="card">
+
+<h2>ダウンロード</h2>
+
+<p>
+
+
+<a href="https://play.google.com/store/apps/details?id=com.hakurops.foodlog&hl=en-US">
+    ダウンロードはこちらから(Google Play)
+</a>
+
+
+</p>
+
+
+</section>
+ 
+    
+    <!-- （カード）更新履歴について -->
+<section class="card">
+    <h2>📝 更新履歴</h2>
+    <p>・製品版を公開しました。</p>
+ 
+ 
+
+</section>
+
+     <!-- （カード）プライバシーポリシーについて -->
+<section class="card">
+<h2>プライバシーポリシー</h2>
+<p>
+Foodlog のプライバシーポリシーはこちらからご確認いただけます。
+
+</p>
+
+<p>
+
+<a href="../privacy/foodlog.html">
+
+プライバシーポリシーを見る →
+
+</a>
+
+</p>
+
+</section>
+
+<p style="margin-top:40px;">
+
+<a href="index.html">
+
+← Appsへ戻る
+
+</a>
+
+</p>
+
+</main>
+
+<footer>
+
+<p>
+
+© 2026 HakuRo Project Studio
+
+</p>
+
+</footer>
+
+ <script src="../js/script.js"></script>
+
+
+</body>
+
+</html>
