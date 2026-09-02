@@ -9,28 +9,37 @@
     <title>Games | HakuRo Project Studio</title>
 
     <link rel="stylesheet" href="../css/base.css">
-<link rel="stylesheet" href="../css/layout.css">
-<link rel="stylesheet" href="../css/components.css">
-<link rel="stylesheet" href="../css/apps.css">
-<link rel="stylesheet" href="../css/gallery.css">
-<link rel="stylesheet" href="../css/carousel.css">
-<link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <!-- Games専用CSS -->
+    <link rel="stylesheet" href="../css/games.css">
 
 </head>
 
-<body>
+<body class="games-page">
 
-<header>
+<header class="games-header">
 
-    <h1>Games</h1>
+    <div class="games-header-inner">
 
-    <p>ゲーム作品</p>
+        <p class="games-label">HakuRo Project Studio</p>
+
+        <h1>Games</h1>
+
+        <p class="games-subtitle">
+            森の奥にある、もうひとつの遊び場。
+        </p>
+
+    </div>
 
 </header>
 
+
 <main>
 
-<div class="breadcrumb">
+<div class="breadcrumb games-breadcrumb">
 
     <a href="../index.html">Home</a>
 
@@ -40,134 +49,284 @@
 
 </div>
 
-<section class="hero">
 
-    <h2>Games</h2>
-
-    <p>
-
-        ブラウザゲームや制作したゲームを掲載しています。
-
-    </p>
-
-</section>
-
-  <section class="card category-card">
-
-    <h2>💻 Browser</h2>
-
-    <div class="app-grid">  
-
-<div class="grid">
-
-<section class="card">
-
-
-　　<h2>？？？</h2>
-   <!-- <h2>🌙 ヨルと帰り道</h2> -->
-
-    <p>
-
-        ブラウザで遊べるノベルゲームです。
-
-    </p>
-
-    <p>
-
-        <strong>公開状況：</strong>制作中
-
-    </p>
-
-</section>
-
-</div>
-        
-</div>
-
- </section>  
-
-
-
-<!--=========================
-Moblie Apps 一覧
-===========================-->
-
- <section class="card category-card">
-
-    <h2>📱 Mobile apps</h2>
-
-   <!-- ==========================
-     いかたっぷ
+<!-- ==========================
+     Hero
 ========================== -->
-   <div class="app-grid">
-       <section class="app-card">
 
-<div class="app-icon">
+<section class="games-hero">
 
-        <!-- いかたっぷ アイコン -->
- <img src="../images/apps/developing_icon.png"
-     alt="開発中">
-    
-</div>
+    <div class="games-hero-content">
 
-<h3>？？？</h3>
+        <p class="hero-small">
+            ENTER ANOTHER WORLD
+        </p>
 
-<p>
+        <h2>
+            Games
+        </h2>
 
-内容：？？？
+        <p>
+            ブラウザゲームやスマートフォン向けゲームなど、<br>
+            HakuRo Project Studioで制作したゲーム作品を掲載しています。
+        </p>
 
-</p>
+    </div>
+
+    <div class="hero-decoration">
+        ✦
+    </div>
 
 </section>
 
- </div>
 
-     
-   <!-- ==========================
-     Battle of Nile
+<!-- ==========================
+     Browser Games
 ========================== -->
-   <div class="app-grid">
-       <section class="app-card">
 
-<div class="app-icon">
+<section class="games-category">
 
-        <!-- Battle of Nile アイコン -->
- <img src="../images/apps/developing_icon.png"
-     alt="開発中">
-    
-</div>
+    <div class="category-heading">
 
-<h3>？？？</h3>
+        <span class="category-icon">◈</span>
 
-<p>
+        <div>
+            <p class="category-label">
+                BROWSER GAMES
+            </p>
 
-内容：？？？
+            <h2>
+                Browser
+            </h2>
+        </div>
 
-</p>
+    </div>
+
+
+    <div class="game-grid">
+
+
+        <!-- ==========================
+             Game 01
+        ========================== -->
+
+        <section class="game-card">
+
+            <div class="game-card-image developing">
+
+                <span>COMING SOON</span>
+<!-- <h2>🌙 ヨルと帰り道</h2> -->
+            </div>
+
+            <div class="game-card-body">
+
+                <p class="game-type">
+                    Novel Game
+                </p>
+
+                <h3>
+                    ？？？
+                </h3>
+
+                <p>
+                    ブラウザで遊べるノベルゲームです。
+                </p>
+
+                <div class="game-status">
+                    制作中
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!--
+        ==========================
+        Game 02
+
+        ゲーム追加時はこの形で追加
+
+        <section class="game-card">
+
+            <div class="game-card-image">
+                <img src="../images/games/xxx.jpg" alt="ゲーム名">
+            </div>
+
+            <div class="game-card-body">
+
+                <p class="game-type">
+                    Game Type
+                </p>
+
+                <h3>
+                    ゲーム名
+                </h3>
+
+                <p>
+                    ゲーム説明。
+                </p>
+
+                <a href="xxx.html" class="game-button">
+                    PLAY
+                </a>
+
+            </div>
+
+        </section>
+        ==========================
+        -->
+
+    </div>
 
 </section>
 
- </div>
+
+<!-- ==========================
+     Mobile Games
+========================== -->
+
+<section class="games-category">
+
+    <div class="category-heading">
+
+        <span class="category-icon">✦</span>
+
+        <div>
+            <p class="category-label">
+                MOBILE GAMES
+            </p>
+
+            <h2>
+                Mobile Games
+            </h2>
+        </div>
+
+    </div>
 
 
-    
-   </section> 
+    <div class="game-grid">
 
 
+        <!-- ==========================
+             Mobile Game 01 いかたっぷ
+        ========================== -->
 
-    
+        <section class="game-card">
+
+            <div class="game-card-image developing">
+
+                <img
+                    src="../images/apps/developing_icon.png"
+                    alt="開発中"
+                >
+
+                <span>DEVELOPING</span>
+
+            </div>
+
+            <div class="game-card-body">
+
+                <p class="game-type">
+                    Mobile Game
+                </p>
+
+                <h3>
+                    ？？？
+                </h3>
+
+                <p>
+                    内容：？？？
+                </p>
+
+                <div class="game-status">
+                    制作中
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================
+             Mobile Game 02 Battle of Nile
+        ========================== -->
+
+        <section class="game-card">
+
+            <div class="game-card-image developing">
+
+                <img
+                    src="../images/apps/developing_icon.png"
+                    alt="開発中"
+                >
+
+                <span>DEVELOPING</span>
+
+            </div>
+
+            <div class="game-card-body">
+
+                <p class="game-type">
+                    Mobile Game
+                </p>
+
+                <h3>
+                    ？？？
+                </h3>
+
+                <p>
+                    内容：？？？
+                </p>
+
+                <div class="game-status">
+                    制作中
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+</section>
+
+
+<!-- ==========================
+     Footer Message
+========================== -->
+
+<section class="games-ending">
+
+    <div class="ending-symbol">
+        ✦
+    </div>
+
+    <p>
+        The forest has many stories.
+    </p>
+
+    <p class="ending-jp">
+        まだ見ぬ世界を、少しずつ。
+    </p>
+
+</section>
+
+
 </main>
 
-<footer>
 
-<p>
+<footer class="games-footer">
 
-© 2026 HakuRo Project Studio
-
-</p>
+    <p>
+        © 2026 HakuRo Project Studio
+    </p>
 
 </footer>
 
 </body>
 
 </html>
+```
+
