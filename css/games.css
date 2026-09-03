@@ -1019,9 +1019,9 @@
 ----------------------------------------- */
 
 .games-app-page .game-card {
-    margin-bottom: 44px;
+    margin-bottom: 30px;
 
-    padding: 32px 36px;
+    padding: 25px 30px;
 
     background:
         linear-gradient(
@@ -1036,6 +1036,22 @@
         0 12px 30px rgba(0, 0, 0, 0.28);
 
     color: #e7ebe6;
+}
+
+.games-app-page .game-card h2 {
+    margin-bottom: 20px;
+}
+
+.games-app-page .game-card p {
+    margin-bottom: 16px;
+}
+
+.games-app-page .game-card p:last-child {
+    margin-bottom: 0;
+}
+
+.games-app-page .game-card ul {
+    margin-top: 0;
 }
 
 
@@ -1149,6 +1165,7 @@
 ----------------------------------------- */
 
 .games-app-page .game-card h2 {
+    margin-bottom: 20px;
     color: #f0d18c;
 }
 
@@ -1156,6 +1173,14 @@
 /* -----------------------------------------
    Card Text
 ----------------------------------------- */
+
+.games-app-page .game-card p {
+    margin-bottom: 16px;
+}
+
+.games-app-page .game-card p:last-child {
+    margin-bottom: 0;
+}
 
 .games-app-page .game-card p,
 .games-app-page .game-card li {
@@ -1167,10 +1192,13 @@
    List
 ----------------------------------------- */
 
+.games-app-page .game-card ul {
+    margin-top: 0;
+}
+
 .games-app-page .game-card li::marker {
     color: #d5a85a;
 }
-
 
 /* -----------------------------------------
    Links
