@@ -987,10 +987,11 @@
 }
 
 /* =========================================
-   Battle of Nile
+   Games App Page
+   ゲーム個別ページ共通
 ========================================= */
 
-.battle-nile-page {
+.games-app-page {
     background:
         radial-gradient(
             circle at 15% 20%,
@@ -1012,8 +1013,29 @@
     color: #eeeeea;
 }
 
-.battle-nile-page .game-card {
+
+/* -----------------------------------------
+   Game Cards
+----------------------------------------- */
+
+.games-app-page .game-card {
     margin-bottom: 44px;
+
+    padding: 32px 36px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20, 43, 39, 0.96),
+            rgba(10, 26, 24, 0.96)
+        );
+
+    border: 1px solid rgba(122, 148, 139, 0.22);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.28);
+
+    color: #e7ebe6;
 }
 
 
@@ -1021,7 +1043,7 @@
    Hero
 ----------------------------------------- */
 
-.battle-nile-hero {
+.games-app-hero {
     position: relative;
 
     background:
@@ -1123,31 +1145,10 @@
 
 
 /* -----------------------------------------
-   Game Cards
------------------------------------------ */
-
-.battle-nile-page .game-card {
-    background:
-        linear-gradient(
-            145deg,
-            rgba(20, 43, 39, 0.96),
-            rgba(10, 26, 24, 0.96)
-        );
-
-    border: 1px solid rgba(122, 148, 139, 0.22);
-
-    box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.28);
-
-    color: #e7ebe6;
-}
-
-
-/* -----------------------------------------
    Card Headings
 ----------------------------------------- */
 
-.battle-nile-page .game-card h2 {
+.games-app-page .game-card h2 {
     color: #f0d18c;
 }
 
@@ -1156,8 +1157,8 @@
    Card Text
 ----------------------------------------- */
 
-.battle-nile-page .game-card p,
-.battle-nile-page .game-card li {
+.games-app-page .game-card p,
+.games-app-page .game-card li {
     color: #cbd3cd;
 }
 
@@ -1166,7 +1167,7 @@
    List
 ----------------------------------------- */
 
-.battle-nile-page .game-card li::marker {
+.games-app-page .game-card li::marker {
     color: #d5a85a;
 }
 
@@ -1175,11 +1176,11 @@
    Links
 ----------------------------------------- */
 
-.battle-nile-page a {
+.games-app-page a {
     color: #d5a85a;
 }
 
-.battle-nile-page a:hover {
+.games-app-page a:hover {
     color: #f0c978;
 }
 
@@ -1188,7 +1189,7 @@
    Screenshot
 ----------------------------------------- */
 
-.battle-nile-page .screenshot-card {
+.games-app-page .screenshot-card {
     background:
         radial-gradient(
             circle at 50% 0%,
@@ -1200,6 +1201,27 @@
             rgba(20, 43, 39, 0.96),
             rgba(10, 26, 24, 0.96)
         );
+}
+
+
+/* -----------------------------------------
+   Carousel
+----------------------------------------- */
+
+.games-app-page .carousel-window {
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.games-app-page .carousel-track img {
+    width: 100%;
+    max-height: 560px;
+
+    object-fit: contain;
+
+    margin: 0 auto;
+
+    border-radius: 12px;
 }
 
 
@@ -1216,7 +1238,7 @@
    Footer
 ----------------------------------------- */
 
-.battle-nile-page footer {
+.games-app-page footer {
     color: #000000 !important;
 }
 
@@ -1237,20 +1259,8 @@
         height: 90px;
     }
 
-}
-/* =========================================
-   Battle of Nile Carousel
-========================================= */
+    .games-app-page .game-card {
+        padding: 26px 24px;
+    }
 
-.battle-nile-page .carousel-window {
-    max-width: 420px;
-    margin: 0 auto;
-}
-
-.battle-nile-page .carousel-track img {
-    width: 100%;
-    max-height: 560px;
-    object-fit: contain;
-    margin: 0 auto;
-    border-radius: 12px;
 }
