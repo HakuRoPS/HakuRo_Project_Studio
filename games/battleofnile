@@ -35,13 +35,21 @@
 
 </head>
 <!-- （カード）アプリタイトル -->
-<body>
+<body class="games-page foodlog-game-page">
 
-<header>
+<header class="games-header">
 
-    <h1>Foodlog</h1>
+    <div class="games-header-inner">
 
-    <p>食材管理アプリ</p>
+        <p class="games-label">HakuRo Project Studio</p>
+
+        <h1>Foodlog</h1>
+
+        <p class="games-subtitle">
+            食材を、もっとシンプルに。
+        </p>
+
+    </div>
 
 </header>
 
@@ -61,25 +69,46 @@
 
 </div>
  
-<section class="hero">
+<section class="games-hero foodlog-hero">
 
-<div class="app-icon">
- 
-<!-- アイコンは後で追加 -->
- <img src="../images/apps/foodlog_icon.png"
-     alt="Foodlog">
- 
-</div>
- 
-<h2>Foodlog</h2>
+    <div class="games-hero-content">
 
-<p>
-食材をシンプルに管理するためのアプリです。
-</p>
+        <p class="hero-small">
+            FOOD MANAGEMENT APP
+        </p>
 
-<p>
-<strong>公開状況：</strong>公開中
-</p>
+        <div class="foodlog-hero-main">
+
+            <div class="app-icon">
+                <img
+                    src="../images/apps/foodlog_icon.png"
+                    alt="Foodlog"
+                >
+            </div>
+
+            <div>
+
+                <h2>
+                    Foodlog
+                </h2>
+
+                <p>
+                    食材をシンプルに管理するためのアプリです。
+                </p>
+
+                <p class="foodlog-status">
+                    <strong>公開状況：</strong>公開中
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="hero-decoration">
+        ✦
+    </div>
 
 </section>
 
