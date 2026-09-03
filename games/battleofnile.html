@@ -2,48 +2,60 @@
 <html lang="ja">
 
 <head>
- 
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="icon" href="../images/web_icon.png" type="image/png">
+    <link rel="icon" href="../images/web_icon.png" type="image/png">
 
     <title>Battle of Nile | HakuRo Project Studio</title>
 
+    <!-- 共通CSS -->
     <link rel="stylesheet" href="../css/base.css">
-<link rel="stylesheet" href="../css/layout.css">
-<link rel="stylesheet" href="../css/components.css">
-<link rel="stylesheet" href="../css/apps.css">
-<link rel="stylesheet" href="../css/gallery.css">
-<link rel="stylesheet" href="../css/carousel.css">
-<link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
 
-
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KYFJBWW1S9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-KYFJBWW1S9');
-
-    </script>
-
-<!-- Games専用CSS -->
+    <!-- Games専用CSS -->
     <link rel="stylesheet" href="../css/games.css">
 
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KYFJBWW1S9"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-KYFJBWW1S9');
+    </script>
+
 </head>
-<!-- （カード）アプリタイトル -->
-<body class="games-page foodlog-game-page">
+
+
+<body class="games-page battle-nile-page">
+
+
+<!-- ==========================
+     Header
+========================== -->
 
 <header class="games-header">
 
     <div class="games-header-inner">
 
-        <p class="games-label">HakuRo Project Studio</p>
+        <p class="games-label">
+            HakuRo Project Studio
+        </p>
 
-        <h1>Battle of Nile</h1>
+        <h1>
+            Battle of Nile
+        </h1>
 
         <p class="games-subtitle">
             ワニのデスロール風回転バトル。
@@ -53,23 +65,40 @@
 
 </header>
 
+
 <main>
 
-<div class="breadcrumb">
 
-<a href="../index.html">Home</a>
+<!-- ==========================
+     Breadcrumb
+========================== -->
 
-<span>＞</span>
+<div class="breadcrumb games-breadcrumb">
 
-<a href="index.html">Apps</a>
+    <a href="../index.html">
+        Home
+    </a>
 
-<span>＞</span>
+    <span>＞</span>
 
-<span>Battle of Nile</span>
+    <a href="index.html">
+        Games
+    </a>
+
+    <span>＞</span>
+
+    <span>
+        Battle of Nile
+    </span>
 
 </div>
- 
-<section class="games-hero foodlog-hero">
+
+
+<!-- ==========================
+     Hero
+========================== -->
+
+<section class="games-hero battle-nile-hero">
 
     <div class="games-hero-content">
 
@@ -77,27 +106,33 @@
             ROTATE WANI BATTLE
         </p>
 
-        <div class="foodlog-hero-main">
 
-            <div class="app-icon">
+        <div class="game-hero-main">
+
+
+            <div class="game-icon">
+
                 <img
-                    src="../images/apps/foodlog_icon.png"
-                    alt="Foodlog"
+                    src="../images/games/battle_of_nile_icon.png"
+                    alt="Battle of Nile"
                 >
+
             </div>
 
-            <div>
+
+            <div class="game-hero-info">
 
                 <h2>
                     Battle of Nile
                 </h2>
 
                 <p>
-                    ワニを回転させて戦うゲームアプリです。
+                    ワニを回転させて戦う、シンプルなバトルゲームです。
                 </p>
 
-                <p class="foodlog-status">
-                    <strong>公開状況：</strong>クローズドテスト中
+                <p class="game-status">
+                    <strong>公開状況：</strong>
+                    クローズドテスト中
                 </p>
 
             </div>
@@ -105,6 +140,7 @@
         </div>
 
     </div>
+
 
     <div class="hero-decoration">
         ✦
@@ -112,52 +148,99 @@
 
 </section>
 
-    <!-- （カード）アプリについて -->
- <section class="game-card">
 
-    <h2>アプリについて</h2>
+
+<!-- ==========================
+     Game About
+========================== -->
+
+<section class="game-card">
+
+    <h2>
+        ゲームについて
+    </h2>
 
     <p>
-        Foodlog は、家庭の食材をシンプルに管理するためのアプリです。
+        Battle of Nile は、ワニを回転させて戦う
+        シンプルなバトルゲームです。
     </p>
 
     <p>
-        冷蔵・冷凍・常温ごとに食材を整理し、
-        在庫数や賞味期限を一目で確認できます。
+        相手とのタイミングを見極めながら、
+        ワニを回転させて攻撃を繰り出します。
     </p>
 
     <p>
-        「買い忘れ」や「使い忘れ」を減らし、
-        毎日の食材管理を少しだけ楽にすることを目指しています。
+        短時間でも気軽に遊べる、
+        シンプルなゲーム体験を目指して制作しています。
     </p>
 
 </section>
- <!-- （カード）スクリーンショットについて -->
-<section class="card screenshot-card">
 
-    <h2>スクリーンショット</h2>
+
+
+<!-- ==========================
+     Screenshots
+========================== -->
+
+<section class="game-card screenshot-card">
+
+    <h2>
+        スクリーンショット
+    </h2>
+
 
     <div class="carousel">
+
         <div class="carousel-window">
+
             <div class="carousel-track">
-                <img src="../images/screenshots/foodlog/01_foodlist.png" alt="一覧画面">
-                <img src="../images/screenshots/foodlog/02_foodlist_caution.png" alt="要購入">
-                <img src="../images/screenshots/foodlog/03_foodlist_DM.png" alt="ダークモード">
-                <img src="../images/screenshots/foodlog/04_foodadd.png" alt="追加画面">
+
+                <img
+                    src="../images/screenshots/battle_of_nile/01.png"
+                    alt="Battle of Nile ゲーム画面"
+                >
+
+                <img
+                    src="../images/screenshots/battle_of_nile/02.png"
+                    alt="Battle of Nile バトル画面"
+                >
+
+                <img
+                    src="../images/screenshots/battle_of_nile/03.png"
+                    alt="Battle of Nile ゲーム画面"
+                >
+
             </div>
+
         </div>
+
+
         <div class="carousel-controls">
-            <button class="carousel-btn prev" type="button" aria-label="前へ">
+
+            <button
+                class="carousel-btn prev"
+                type="button"
+                aria-label="前へ"
+            >
                 &#10094;
             </button>
+
+
             <div class="carousel-dots">
+
                 <span class="dot active"></span>
                 <span class="dot"></span>
                 <span class="dot"></span>
-                <span class="dot"></span>
+
             </div>
 
-            <button class="carousel-btn next" type="button" aria-label="次へ">
+
+            <button
+                class="carousel-btn next"
+                type="button"
+                aria-label="次へ"
+            >
                 &#10095;
             </button>
 
@@ -167,77 +250,125 @@
 
 </section>
 
-<!-- （カード）主な機能について -->
- <section class="game-card">
-
-    <h2>主な機能</h2>
-
-<ul>
-    <li>食材の在庫管理</li>
-    <li>賞味期限・消費期限の管理</li>
-    <li>冷蔵・冷凍・常温で分類</li>
-    <li>在庫数の増減を簡単に操作</li>
-    <li>食材の検索・並び替え</li>
-    <li>購入目安（要購入）の管理</li>
-</ul>
-</section>
-
- <!-- （カード）ダウンロードについて -->
-     <section class="game-card">
-
-<h2>ダウンロード</h2>
-
-<p>
 
 
-<a href="https://play.google.com/store/apps/details?id=com.hakurops.foodlog&hl=en-US">
-    ダウンロードはこちらから(Google Play)
-</a>
+<!-- ==========================
+     Game Features
+========================== -->
 
+<section class="game-card">
 
-</p>
+    <h2>
+        ゲーム内容
+    </h2>
 
+    <ul>
 
-</section>
- 
-    
-    <!-- （カード）更新履歴について -->
- <section class="game-card">
-    <h2>📝 更新履歴</h2>
-    <p>・製品版を公開しました。</p>
- 
- 
+        <li>
+            ワニを回転させて攻撃
+        </li>
+
+        <li>
+            タイミングを見極めてバトル
+        </li>
+
+        <li>
+            シンプルな操作で遊べるゲームシステム
+        </li>
+
+        <li>
+            短時間でも楽しめるゲームプレイ
+        </li>
+
+    </ul>
 
 </section>
 
-     <!-- （カード）プライバシーポリシーについて -->
- <section class="game-card">
-<h2>プライバシーポリシー</h2>
-<p>
-Foodlog のプライバシーポリシーはこちらからご確認いただけます。
 
-</p>
 
-<p>
+<!-- ==========================
+     Release
+========================== -->
 
-<a href="../privacy/foodlog.html">
+<section class="game-card">
 
-プライバシーポリシーを見る →
+    <h2>
+        公開状況
+    </h2>
 
-</a>
-
-</p>
-
-</section>
-
-<p style="margin-top:40px;">
-
-<a href="index.html">
-← Appsへ戻る
-
-</a>
+    <p>
+        現在、クローズドテストを実施しています。
     </p>
-    
+
+    <p>
+        正式公開に向けて、ゲーム内容や操作性の調整を行っています。
+    </p>
+
+    <div class="game-status">
+        CLOSED TEST
+    </div>
+
+</section>
+
+
+
+<!-- ==========================
+     Update History
+========================== -->
+
+<section class="game-card">
+
+    <h2>
+        📝 更新履歴
+    </h2>
+
+    <p>
+        ・クローズドテスト版を公開しました。
+    </p>
+
+</section>
+
+
+
+<!-- ==========================
+     Privacy Policy
+========================== -->
+
+<section class="game-card">
+
+    <h2>
+        プライバシーポリシー
+    </h2>
+
+    <p>
+        Battle of Nile のプライバシーポリシーはこちらからご確認いただけます。
+    </p>
+
+    <p>
+
+        <a href="../privacy/battle-of-nile.html">
+            プライバシーポリシーを見る →
+        </a>
+
+    </p>
+
+</section>
+
+
+
+<!-- ==========================
+     Back to Games
+========================== -->
+
+<p class="game-back-link">
+
+    <a href="index.html">
+        ← Gamesへ戻る
+    </a>
+
+</p>
+
+
 
 <!-- ==========================
      Footer Message
@@ -261,15 +392,20 @@ Foodlog のプライバシーポリシーはこちらからご確認いただけ
 
 
 
+<!-- ==========================
+     Footer
+========================== -->
+
 <footer style="color: #000000 !important;">
 
-<p>
-
-© 2026 HakuRo Project Studio
-
-</p>
+    <p>
+        © 2026 HakuRo Project Studio
+    </p>
 
 </footer>
+
+
+</main>
 
 </body>
 
