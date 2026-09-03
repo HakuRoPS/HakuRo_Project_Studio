@@ -714,4 +714,274 @@
 
     }
 
+   /* =========================================
+   Gameapp - Game World Style
+========================================= */
+
+.foodlog-game-page {
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(91, 65, 122, 0.22),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 10%,
+            rgba(180, 130, 55, 0.12),
+            transparent 30%
+        ),
+        linear-gradient(
+            180deg,
+            #102522 0%,
+            #0b1b19 55%,
+            #071311 100%
+        );
+
+    color: #eeeeea;
+}
+
+
+/* -----------------------------------------
+   Header
+----------------------------------------- */
+
+.foodlog-game-page .games-header {
+    background: transparent;
+}
+
+
+/* -----------------------------------------
+   Breadcrumb
+----------------------------------------- */
+
+.foodlog-game-page .breadcrumb {
+    color: #b9c2bc;
+}
+
+.foodlog-game-page .breadcrumb a {
+    color: #d5a85a;
+}
+
+.foodlog-game-page .breadcrumb a:hover {
+    color: #f0c978;
+}
+
+
+/* -----------------------------------------
+   Foodlog Hero
+----------------------------------------- */
+
+.foodlog-hero {
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(108, 73, 142, 0.28),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(190, 140, 60, 0.12),
+            transparent 35%
+        ),
+        rgba(12, 30, 27, 0.92);
+
+    border: 1px solid rgba(211, 166, 82, 0.55);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.35),
+        inset 0 0 40px rgba(85, 61, 110, 0.08);
+}
+
+
+/* Hero inner */
+
+.foodlog-hero-main {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+
+    margin-top: 20px;
+}
+
+
+/* App icon */
+
+.foodlog-hero .app-icon {
+    flex: 0 0 auto;
+
+    width: 110px;
+    height: 110px;
+
+    border-radius: 24px;
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(211, 166, 82, 0.3);
+}
+
+.foodlog-hero .app-icon img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* Hero title */
+
+.foodlog-hero h2 {
+    margin-bottom: 12px;
+
+    color: #f1eee5;
+}
+
+.foodlog-hero p {
+    color: #cbd3cd;
+}
+
+
+/* Public status */
+
+.foodlog-status {
+    margin-top: 18px;
+
+    color: #d5a85a !important;
+}
+
+.foodlog-status strong {
+    color: #e8d2a0;
+}
+
+
+/* -----------------------------------------
+   Content Cards
+----------------------------------------- */
+
+.foodlog-game-page .card {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20, 43, 39, 0.96),
+            rgba(10, 26, 24, 0.96)
+        );
+
+    border: 1px solid rgba(122, 148, 139, 0.22);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.28);
+
+    color: #e7ebe6;
+}
+
+
+/* Card headings */
+
+.foodlog-game-page .card h2 {
+    color: #f0d18c;
+}
+
+
+/* Card text */
+
+.foodlog-game-page .card p,
+.foodlog-game-page .card li {
+    color: #cbd3cd;
+}
+
+
+/* Lists */
+
+.foodlog-game-page .card li::marker {
+    color: #d5a85a;
+}
+
+
+/* -----------------------------------------
+   Links
+----------------------------------------- */
+
+.foodlog-game-page a {
+    color: #d5a85a;
+}
+
+.foodlog-game-page a:hover {
+    color: #f0c978;
+}
+
+
+/* -----------------------------------------
+   Screenshot area
+----------------------------------------- */
+
+.foodlog-game-page .screenshot-card {
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(88, 63, 118, 0.16),
+            transparent 50%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(20, 43, 39, 0.96),
+            rgba(10, 26, 24, 0.96)
+        );
+}
+
+
+/* -----------------------------------------
+   Back to Apps
+----------------------------------------- */
+
+.foodlog-game-page > main > p {
+    color: #cbd3cd;
+}
+
+
+/* -----------------------------------------
+   Ending
+----------------------------------------- */
+
+.foodlog-game-page .games-ending {
+    color: #d8ddd8;
+}
+
+.foodlog-game-page .games-ending .ending-symbol {
+    color: #d5a85a;
+}
+
+.foodlog-game-page .games-ending .ending-jp {
+    color: #aebbb4;
+}
+
+
+/* -----------------------------------------
+   Footer
+----------------------------------------- */
+
+.foodlog-game-page footer {
+    color: #000000 !important;
+}
+
+
+/* -----------------------------------------
+   Mobile
+----------------------------------------- */
+
+@media (max-width: 600px) {
+
+    .foodlog-hero-main {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .foodlog-hero .app-icon {
+        width: 90px;
+        height: 90px;
+    }
+
+}
+
 }
