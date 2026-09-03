@@ -29,7 +29,10 @@
   gtag('config', 'G-KYFJBWW1S9');
 
     </script>
- 
+
+<!-- Games専用CSS -->
+    <link rel="stylesheet" href="../css/games.css">
+
 </head>
 <!-- （カード）アプリタイトル -->
 <body>
@@ -201,16 +204,35 @@ Foodlog のプライバシーポリシーはこちらからご確認いただけ
 <p style="margin-top:40px;">
 
 <a href="index.html">
-
 ← Appsへ戻る
 
 </a>
+    </p>
+    
 
-</p>
+<!-- ==========================
+     Footer Message
+========================== -->
 
-</main>
+<section class="games-ending">
 
-<footer>
+    <div class="ending-symbol">
+        ✦
+    </div>
+
+    <p>
+        The forest has many stories.
+    </p>
+
+    <p class="ending-jp">
+        まだ見ぬ世界を、少しずつ。
+    </p>
+
+</section>
+
+
+
+<footer style="color: #000000 !important;">
 
 <p>
 
@@ -219,9 +241,6 @@ Foodlog のプライバシーポリシーはこちらからご確認いただけ
 </p>
 
 </footer>
-
- <script src="../js/script.js"></script>
-
 
 </body>
 
