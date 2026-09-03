@@ -1204,25 +1204,6 @@
 }
 
 
-/* -----------------------------------------
-   Carousel
------------------------------------------ */
-
-.games-app-page .carousel-window {
-    max-width: 420px;
-    margin: 0 auto;
-}
-
-.games-app-page .carousel-track img {
-    width: 100%;
-    max-height: 560px;
-
-    object-fit: contain;
-
-    margin: 0 auto;
-
-    border-radius: 12px;
-}
 
 
 /* -----------------------------------------
