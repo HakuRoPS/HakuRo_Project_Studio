@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" href="../images/web_icon.png" type="image/png">
+
+<title>計算ツール | HakuRo Project Studio</title>
+
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/apps.css">
+<link rel="stylesheet" href="../css/gallery.css">
+<link rel="stylesheet" href="../css/carousel.css">
+<link rel="stylesheet" href="../css/responsive.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KYFJBWW1S9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KYFJBWW1S9');
+</script>
+
+<style>
+/* =========================================================
+   HakuRo Project Studio - Calculation Tools
+   既存CSSとの衝突を避けるため、専用クラス名を使用
+   ========================================================= */
+
+.hps-calc-page {
+  width: 100%;
+}
+
+.hps-calc-category {
+  margin-bottom: 32px;
+}
+
+.hps-calc-category-title {
+  margin-bottom: 8px;
+}
+
+.hps-calc-category-description {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.hps-calc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* buttonではなくdivを使い、既存button CSSの影響を回避 */
+.hps-calc-tool-item {
+  display: block !important;
+  width: 100% !important;
+  min-height: 118px;
+  box-sizing: border-box;
+  padding: 20px !important;
+  border: 1px solid #d8ded8 !important;
+  border-radius: 12px !important;
+  background: #ffffff !important;
+  color: #333333 !important;
+  opacity: 1 !important;
+  text-align: left;
+  cursor: pointer !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.hps-calc-tool-item:hover {
+  transform: translateY(-2px);
+  border-color: #9aaa9a !important;
+  box-shadow: 0 5px 14px rgba(0,0,0,0.09);
+}
+
+.hps-calc-tool-item:focus {
+  outline: 2px solid #7d987d;
+  outline-offset: 2px;
+}
+
+.hps-calc-tool-item h3,
+.hps-calc-tool-item p,
+.hps-calc-tool-item span {
+  color: #333333 !important;
+  opacity: 1 !important;
+}
+
+.hps-calc-tool-item h3 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+}
+
+.hps-calc-tool-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.hps-calc-tool-label {
+  display: inline-block;
+  margin-bottom: 9px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #eef3ee !important;
+  color: #617261 !important;
+  font-size: 0.72rem;
+}
+
+/* ---------- モーダル ---------- */
+
+.hps-calc-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  background: rgba(0,0,0,0.48) !important;
+}
+
+.hps-calc-overlay.is-open {
+  display: flex;
+}
+
+.hps-calc-modal {
+  position: relative;
+  width: min(620px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 28px;
+  border-radius: 16px;
+  background: #ffffff !important;
+  color: #333333 !important;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+}
+
+.hps-calc-modal h2,
+.hps-calc-modal p,
+.hps-calc-modal label {
+  color: #333333 !important;
+}
+
+.hps-calc-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  border: 0 !important;
+  background: transparent !important;
+  color: #666666 !important;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 1 !important;
+  padding: 4px 8px !important;
+}
+
+.hps-calc-close:hover {
+  color: #222222 !important;
+}
+
+.hps-calc-modal-title {
+  margin: 0 40px 6px 0;
+}
+
+.hps-calc-modal-description {
+  margin-top: 0;
+  margin-bottom: 22px;
+  color: #666666 !important;
+}
+
+.hps-calc-form {
+  display: grid;
+  gap: 15px;
+}
+
+.hps-calc-field {
+  display: grid;
+  gap: 6px;
+}
+
+.hps-calc-field label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.hps-calc-field input,
+.hps-calc-field select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1px solid #cfd6cf !important;
+  border-radius: 8px;
+  background: #ffffff !important;
+  color: #333333 !important;
+  font-size: 16px;
+  opacity: 1 !important;
+}
+
+.hps-calc-field input:focus,
+.hps-calc-field select:focus {
+  outline: 2px solid #9aae9a;
+  outline-offset: 1px;
+}
+
+.hps-calc-submit {
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px 16px !important;
+  border: 0 !important;
+  border-radius: 9px !important;
+  background: #667d67 !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+  cursor: pointer !important;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.hps-calc-submit:hover {
+  background: #566b57 !important;
+}
+
+.hps-calc-result {
+  display: none;
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 10px;
+  background: #f1f5f1 !important;
+  color: #333333 !important;
+}
+
+.hps-calc-result.is-visible {
+  display: block;
+}
+
+.hps-calc-result-main {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.hps-calc-note {
+  margin: 12px 0 0;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: #666666 !important;
+}
+
+.hps-calc-footer-note {
+  margin-top: 28px;
+  font-size: 0.82rem;
+  color: #777777;
+  line-height: 1.7;
+}
+
+@media (max-width: 800px) {
+  .hps-calc-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .hps-calc-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hps-calc-modal {
+    padding: 22px 18px;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+  <h1>計算ツール</h1>
+  <p>暮らし・お金・不動産に役立つ計算ツール</p>
+</header>
+
+<main class="hps-calc-page">
+
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a>
+    <span>＞</span>
+    <span>計算ツール</span>
+  </div>
+
+  <section class="hero">
+    <h2>HakuRo Calculation Tools</h2>
+    <p>
+      日常生活からお金、不動産まで。
+      ちょっと計算したいときに使えるツールをまとめています。
+    </p>
+  </section>
+
+
+  <!-- ==================== 生活用ツール ==================== -->
+  <section class="card hps-calc-category">
+    <h2 class="hps-calc-category-title">生活用ツール</h2>
+    <p class="hps-calc-category-description">
+      日付・年齢・光熱費など、日常生活で使える計算です。
+    </p>
+
+    <div class="hps-calc-grid">
+
+      <div class="hps-calc-tool-item" role="button" tabindex="0"
+           onclick="openCalc('days')" onkeydown="activateCalc(event,'days')">
+        <span class="hps-calc-tool-label">生活</span>
+        <h3>日数計算</h3>
+        <p>2つの日付の間が何日あるかを計算します。</p>
+      </div>
+
+      <div class="hps-calc-tool-item" role="button" tabindex="0"
+           onclick="openCalc('age')" onkeydown="activateCalc(event,'age')">
+        <span class="hps-calc-tool-label">生活</span>
+        <h3>年齢計算</h3>
+        <p>生年月日から現在の年齢を計算します。</p>
+      </div>
+
+      <div class="hps-calc-tool-item" role="button" tabindex="0"
+           onclick="openCalc('utility')" onkeydown="activateCalc(event,'utility')">
+        <span class="hps-calc-tool-label">生活</span>
+        <h3>水道・光熱費計算</h3>
+        <p>電気・ガス・水道の月額と年間費用を計算します。</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== お金ツール ==================== -->
+  <section class="card hps-calc-category">
+    <h2 class="hps-calc-category-title">お金ツール</h2>
+    <p class="hps-calc-category-description">
+      ローン・貯蓄・投資・家計など、お金に関する計算です。
+    </p>
+
+    <div class="hps-calc-grid">
+
+      <div class="hps-calc-tool-item" role="button" tabindex="0"
+           onclick="openCalc('loan')" onkeydown="activateCalc(event,'loan')">
+        <span class="hps-calc-tool-label">お金</span>
+        <h3>ローン計算</h3>
+        <p>借入額・金利・返済期間から毎月返済額を計算します。</p>
+      </div>
+
+      <div class="hps-calc-tool-item" role="button" tabindex="0"
+           onclick="openCalc('salary')" onkeydown="activateCalc(event,'salary')">
+        <span class="hps-calc-tool-label">お金</span>
+        <h3>給料・手取り計算</h3>
+        <p>額面給与から簡易的な手取り額を計算します。</p>
+      </div>
+
+      <div class="hps-calc-tool-item" role="button" tabindex="0"
+           onclick="openCalc('saving')" onkeydown="activateCalc(event,'saving')">
+        <span class="hps-calc-tool-label">お金</span>
+        <h3>貯蓄計算</h3>
+        <p>毎月の貯蓄額と期間から貯蓄総額を計算します。</p>
+      </div>
+
+      <div class="hps-calc-tool-item" role="button" tabindex="0"
+           onclick="openCalc('compound')" onkeydown="activateCalc(event,'compound')">
+        <span class="hps-calc-tool-label">お金</span>
+        <h3>複利計算</h3>
+        <p>元本・利率・期間から複利運用後の金額を計算します。</p>
+      </div>
+
+      <div class="hps-calc-tool-item" role="button" tabindex="0"
+           onclick="openCalc('investment')" onkeydown="activateCalc(event,'investment')">
+        <span class="hps-calc-tool-label">お金</span>
+        <h3>積立計算</h3>
+        <p>毎月積み立てた場合の将来金額を計算します。</p>
+      </div>
+
+      <div class="hps-calc-tool-item" role="button" tabindex="0"
+           onclick="openCalc('yield')" onkeydown="activateCalc(event,'yield')">
+        <span class="hps-calc-tool-label">お金</span>
+        <h3>投資利回り計算</h3>
+        <p>投資額と年間収益から簡易利回りを計算します。</p>
+      </div>
+
+      <div class="hps-calc-tool-item" role="button" tabindex="0"
+           onclick="openCalc('retirement')" onkeydown="activateCalc(event,'retirement')">
+        <span class="hps-calc-tool-label">お金</span>
+        <h3>老後資金計算</h3>
+        <p>老後の毎月不足額から必要資金を計算します。</p>
+      </div>
+
+      <div class="hps-calc-tool-item" role="button" tabindex="0"
+           onclick="openCalc('education')" onkeydown="activateCalc(event,'education')">
+        <span class="hps-calc-tool-label">お金</span>
+        <h3>教育費計算</h3>
+        <p>年間教育費と教育期間から総額を計算します。</p>
+      </div>
+
+      <div class="hps-calc-tool-item" role="button" tabindex="0"
+           onclick="openCalc('budget')" onkeydown="activateCalc(event,'budget')">
+        <span class="hps-calc-tool-label">お金</span>
+        <h3>家計収支計算</h3>
+        <p>収入と支出から毎月の収支を計算します。</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== 不動産ツール ==================== -->
+  <section class="card hps-calc-category">
+    <h2 class="hps-calc-category-title">不動産ツール</h2>
+    <p class="hps-calc-category-description">
+      住宅ローン・購入予算・賃貸・不動産投資などの計算です。
+    </p>
+
+    <div class="hps-calc-grid">
+
+      <div class="hps-calc-tool-item" role="button" tabindex="0"
+           onclick="openCalc('houseLoan')" onkeydown="activateCalc(event,'houseLoan')">
+        <span class="hps-calc-tool-label">不動産</span>
+        <h3>住宅ローン返済計算</h3>
+        <p>借入額・金利・期間から毎月返済額を計算します。</p>
+      </div>
+
+      <div class="hps-calc-tool-item" role="button" tabindex="0"
+           onclick="openCalc('purchase')" onkeydown="activateCalc(event,'purchase')">
+        <span class="hps-calc-tool-label">不動産</span>
+        <h3>住宅購入予算計算</h3>
+        <p>自己資金と借入可能額から購入予算を計算します。</p>
+      </div>
+
+      <div class="hps-calc-tool-item" role="button" tabindex="0"
+           onclick="openCalc('burden')" onkeydown="activateCalc(event,'burden')">
+        <span class="hps-calc-tool-label">不動産</span>
+        <h3>家賃・住宅ローン負担率</h3>
+        <p>住宅費が収入に占める割合を計算します。</p>
+      </div>
+
+      <div class="hps-calc-tool-item" role="button" tabindex="0"
+           onclick="openCalc('broker')" onkeydown="activateCalc(event,'broker')">
+        <span class="hps-calc-tool-label">不動産</span>
+        <h3>仲介手数料計算</h3>
+        <p>売買価格から仲介手数料の目安を計算します。</p>
+      </div>
+
+      <div class="hps-calc-tool-item" role="button" tabindex="0"
+           onclick="openCalc('propertyYield')" onkeydown="activateCalc(event,'propertyYield')">
+        <span class="hps-calc-tool-label">不動産</span>
+        <h3>不動産投資利回り</h3>
+        <p>購入価格と年間家賃から表面利回りを計算します。</p>
+      </div>
+
+      <div class="hps-calc-tool-item" role="button" tabindex="0"
+           onclick="openCalc('rentBuy')" onkeydown="activateCalc(event,'rentBuy')">
+        <span class="hps-calc-tool-label">不動産</span>
+        <h3>賃貸 vs 購入</h3>
+        <p>一定期間の家賃総額と住宅ローン返済額を比較します。</p>
+      </div>
+
+    </div>
+
+    <p class="hps-calc-footer-note">
+      ※各計算は簡易計算です。税金・社会保険・金融商品・不動産取引等の実際の金額とは
+      異なる場合があります。重要な判断を行う際は、各制度や契約条件を別途ご確認ください。
+    </p>
+  </section>
+
+</main>
+
+
+<footer>
+  <p>© 2026 HakuRo Project Studio</p>
+</footer>
+
+
+<!-- ==================== 計算モーダル ==================== -->
+<div id="hpsCalcOverlay" class="hps-calc-overlay" onclick="overlayClose(event)">
+  <div class="hps-calc-modal" role="dialog" aria-modal="true"
+       aria-labelledby="hpsCalcTitle" onclick="event.stopPropagation()">
+
+    <button type="button" class="hps-calc-close" aria-label="閉じる"
+            onclick="closeCalc()">×</button>
+
+    <h2 id="hpsCalcTitle" class="hps-calc-modal-title"></h2>
+    <p id="hpsCalcDescription" class="hps-calc-modal-description"></p>
+
+    <form id="hpsCalcForm" class="hps-calc-form" onsubmit="calculate(event)">
+      <div id="hpsCalcFields"></div>
+      <button type="submit" class="hps-calc-submit">計算する</button>
+    </form>
+
+    <div id="hpsCalcResult" class="hps-calc-result">
+      <p id="hpsCalcResultMain" class="hps-calc-result-main"></p>
+      <p id="hpsCalcNote" class="hps-calc-note"></p>
+    </div>
+
+  </div>
+</div>
+
+
+<script>
+const calculators = {
+
+  days: {
+    title: "日数計算",
+    description: "2つの日付の間の日数を計算します。",
+    fields: [
+      { id: "start", label: "開始日", type: "date" },
+      { id: "end", label: "終了日", type: "date" }
+    ],
+    calc: v => {
+      const a = new Date(v.start + "T00:00:00");
+      const b = new Date(v.end + "T00:00:00");
+      const days = Math.abs(Math.round((b - a) / 86400000));
+      return {
+        result: `${days.toLocaleString()} 日`,
+        note: "開始日と終了日の差を日数で表示しています。"
+      };
+    }
+  },
+
+  age: {
+    title: "年齢計算",
+    description: "生年月日から現在の満年齢を計算します。",
+    fields: [
+      { id: "birth", label: "生年月日", type: "date" }
+    ],
+    calc: v => {
+      const birth = new Date(v.birth + "T00:00:00");
+      const today = new Date();
+      let age = today.getFullYear() - birth.getFullYear();
+      const birthday =
+        new Date(today.getFullYear(), birth.getMonth(), birth.getDate());
+
+      if (today < birthday) age--;
+
+      return {
+        result: `${age} 歳`,
+        note: "現在日時を基準に満年齢を計算しています。"
+      };
+    }
+  },
+
+  utility: {
+    title: "水道・光熱費計算",
+    description: "電気・ガス・水道の月額と年間費用を計算します。",
+    fields: [
+      { id: "electric", label: "電気代（月額・円）", type: "number", min: 0 },
+      { id: "gas", label: "ガス代（月額・円）", type: "number", min: 0 },
+      { id: "water", label: "水道代（月額・円）", type: "number", min: 0 }
+    ],
+    calc: v => {
+      const monthly = v.electric + v.gas + v.water;
+      return {
+        result: `月額 ${yen(monthly)} ／ 年間 ${yen(monthly * 12)}`,
+        note: "入力した3項目の単純合計です。"
+      };
+    }
+  },
+
+  loan: {
+    title: "ローン計算",
+    description: "元利均等返済方式で毎月返済額を計算します。",
+    fields: [
+      { id: "principal", label: "借入額（円）", type: "number", min: 0 },
+      { id: "rate", label: "年利（%）", type: "number", min: 0, step: 0.01 },
+      { id: "years", label: "返済期間（年）", type: "number", min: 1, step: 1 }
+    ],
+    calc: v => loanResult(v.principal, v.rate, v.years)
+  },
+
+  salary: {
+    title: "給料・手取り計算",
+    description: "額面年収から、設定した控除率を使って簡易的な手取り額を計算します。",
+    fields: [
+      { id: "gross", label: "額面年収（円）", type: "number", min: 0 },
+      { id: "deduction", label: "控除率（%）", type: "number", min: 0, max: 100, step: 0.1, value: 20 }
+    ],
+    calc: v => {
+      const take = v.gross * (1 - v.deduction / 100);
+      return {
+        result: `手取り目安 ${yen(take)} / 年`,
+        note: "実際の所得税・住民税・社会保険料等は個人条件により異なります。"
+      };
+    }
+  },
+
+  saving: {
+    title: "貯蓄計算",
+    description: "毎月の貯蓄額と期間から貯蓄総額を計算します。",
+    fields: [
+      { id: "monthly", label: "毎月の貯蓄額（円）", type: "number", min: 0 },
+      { id: "years", label: "期間（年）", type: "number", min: 0, step: 1 }
+    ],
+    calc: v => {
+      const total = v.monthly * v.years * 12;
+      return {
+        result: `${yen(total)}`,
+        note: "利息や運用益を考慮しない単純な貯蓄額です。"
+      };
+    }
+  },
+
+  compound: {
+    title: "複利計算",
+    description: "元本を複利で運用した場合の将来金額を計算します。",
+    fields: [
+      { id: "principal", label: "元本（円）", type: "number", min: 0 },
+      { id: "rate", label: "年利（%）", type: "number", step: 0.01 },
+      { id: "years", label: "運用期間（年）", type: "number", min: 0, step: 1 }
+    ],
+    calc: v => {
+      const total = v.principal * Math.pow(1 + v.rate / 100, v.years);
+      return {
+        result: `将来金額 ${yen(total)}`,
+        note: "年1回複利として計算しています。税金・手数料は考慮していません。"
+      };
+    }
+  },
+
+  investment: {
+    title: "積立計算",
+    description: "毎月一定額を積み立て、月次複利で運用した場合の将来金額を計算します。",
+    fields: [
+      { id: "monthly", label: "毎月の積立額（円）", type: "number", min: 0 },
+      { id: "rate", label: "年利（%）", type: "number", step: 0.01 },
+      { id: "years", label: "積立期間（年）", type: "number", min: 0, step: 1 }
+    ],
+    calc: v => {
+      const months = Math.round(v.years * 12);
+      const r = v.rate / 100 / 12;
+
+      let total;
+      if (r === 0) {
+        total = v.monthly * months;
+      } else {
+        total = v.monthly * ((Math.pow(1 + r, months) - 1) / r);
+      }
+
+      return {
+        result: `将来金額 ${yen(total)}`,
+        note: "毎月末に積み立てる前提の簡易計算です。"
+      };
+    }
+  },
+
+  yield: {
+    title: "投資利回り計算",
+    description: "投資額と年間収益から簡易的な利回りを計算します。",
+    fields: [
+      { id: "amount", label: "投資額（円）", type: "number", min: 1 },
+      { id: "profit", label: "年間収益（円）", type: "number", min: 0 }
+    ],
+    calc: v => {
+      const rate = v.profit / v.amount * 100;
+      return {
+        result: `利回り ${rate.toFixed(2)} %`,
+        note: "単純利回りです。税金・維持費・売却損益等は含みません。"
+      };
+    }
+  },
+
+  retirement: {
+    title: "老後資金計算",
+    description: "老後の毎月不足額から、必要となる生活資金を概算します。",
+    fields: [
+      { id: "shortfall", label: "毎月の不足額（円）", type: "number", min: 0 },
+      { id: "years", label: "老後期間（年）", type: "number", min: 0, step: 1 }
+    ],
+    calc: v => {
+      const total = v.shortfall * v.years * 12;
+      return {
+        result: `必要資金 ${yen(total)}`,
+        note: "運用益・インフレ・公的年金の変動等を考慮しない概算です。"
+      };
+    }
+  },
+
+  education: {
+    title: "教育費計算",
+    description: "年間教育費と教育期間から必要な教育費総額を計算します。",
+    fields: [
+      { id: "annual", label: "年間教育費（円）", type: "number", min: 0 },
+      { id: "years", label: "教育期間（年）", type: "number", min: 0, step: 1 }
+    ],
+    calc: v => {
+      const total = v.annual * v.years;
+      return {
+        result: `教育費総額 ${yen(total)}`,
+        note: "毎年同じ金額がかかる前提の概算です。"
+      };
+    }
+  },
+
+  budget: {
+    title: "家計収支計算",
+    description: "毎月の収入と支出から収支を計算します。",
+    fields: [
+      { id: "income", label: "月収（手取り・円）", type: "number", min: 0 },
+      { id: "expense", label: "毎月の支出（円）", type: "number", min: 0 }
+    ],
+    calc: v => {
+      const balance = v.income - v.expense;
+      return {
+        result: `月間収支 ${yen(balance)}`,
+        note: balance >= 0 ? "黒字です。" : "赤字です。"
+      };
+    }
+  },
+
+  houseLoan: {
+    title: "住宅ローン返済計算",
+    description: "住宅ローンの毎月返済額を計算します。",
+    fields: [
+      { id: "principal", label: "借入額（円）", type: "number", min: 0 },
+      { id: "rate", label: "年利（%）", type: "number", min: 0, step: 0.01 },
+      { id: "years", label: "返済期間（年）", type: "number", min: 1, step: 1 }
+    ],
+    calc: v => loanResult(v.principal, v.rate, v.years)
+  },
+
+  purchase: {
+    title: "住宅購入予算計算",
+    description: "自己資金・借入可能額・諸費用率から購入予算を概算します。",
+    fields: [
+      { id: "own", label: "自己資金（円）", type: "number", min: 0 },
+      { id: "borrow", label: "借入可能額（円）", type: "number", min: 0 },
+      { id: "costRate", label: "購入諸費用率（%）", type: "number", min: 0, step: 0.1, value: 8 }
+    ],
+    calc: v => {
+      const budget = (v.own + v.borrow) / (1 + v.costRate / 100);
+      return {
+        result: `購入価格の目安 ${yen(budget)}`,
+        note: "自己資金＋借入額を、諸費用込みの総予算として単純計算しています。"
+      };
+    }
+  },
+
+  burden: {
+    title: "家賃・住宅ローン負担率",
+    description: "住宅費が月収に占める割合を計算します。",
+    fields: [
+      { id: "housing", label: "家賃・住宅ローン（月額・円）", type: "number", min: 0 },
+      { id: "income", label: "月収（手取り・円）", type: "number", min: 1 }
+    ],
+    calc: v => {
+      const rate = v.housing / v.income * 100;
+      return {
+        result: `住宅費負担率 ${rate.toFixed(2)} %`,
+        note: "手取り月収に対する住宅費の割合です。"
+      };
+    }
+  },
+
+  broker: {
+    title: "仲介手数料計算",
+    description: "売買価格から宅建業法上の上限額を参考に簡易計算します。",
+    fields: [
+      { id: "price", label: "売買価格（円）", type: "number", min: 0 }
+    ],
+    calc: v => {
+      const p = v.price;
+      let feeBeforeTax;
+
+      if (p <= 2000000) {
+        feeBeforeTax = p * 0.05;
+      } else if (p <= 4000000) {
+        feeBeforeTax = 2000000 * 0.05 + (p - 2000000) * 0.04;
+      } else {
+        feeBeforeTax =
+          2000000 * 0.05 +
+          2000000 * 0.04 +
+          (p - 4000000) * 0.03;
+      }
+
+      const fee = feeBeforeTax * 1.10;
+
+      return {
+        result: `仲介手数料上限の目安 ${yen(fee)}`,
+        note: "通常の料率による簡易計算です。低廉な空家等の特例など、個別の特例は別途確認してください。"
+      };
+    }
+  },
+
+  propertyYield: {
+    title: "不動産投資利回り",
+    description: "購入価格と年間家賃から表面利回りを計算します。",
+    fields: [
+      { id: "price", label: "購入価格（円）", type: "number", min: 1 },
+      { id: "rent", label: "年間家賃収入（円）", type: "number", min: 0 }
+    ],
+    calc: v => {
+      const rate = v.rent / v.price * 100;
+      return {
+        result: `表面利回り ${rate.toFixed(2)} %`,
+        note: "年間家賃収入÷購入価格で計算する表面利回りです。経費・空室・税金等は考慮していません。"
+      };
+    }
+  },
+
+  rentBuy: {
+    title: "賃貸 vs 購入",
+    description: "指定期間の家賃総額と住宅ローン返済総額を単純比較します。",
+    fields: [
+      { id: "rent", label: "月額家賃（円）", type: "number", min: 0 },
+      { id: "loan", label: "住宅ローン月額（円）", type: "number", min: 0 },
+      { id: "years", label: "比較期間（年）", type: "number", min: 1, step: 1 }
+    ],
+    calc: v => {
+      const rentTotal = v.rent * v.years * 12;
+      const loanTotal = v.loan * v.years * 12;
+      const diff = rentTotal - loanTotal;
+
+      return {
+        result:
+          `家賃 ${yen(rentTotal)} ／ ローン ${yen(loanTotal)} ／ 差額 ${yen(Math.abs(diff))}`,
+        note:
+          diff > 0
+            ? "単純比較では、家賃総額のほうが大きくなります。"
+            : diff < 0
+              ? "単純比較では、住宅ローン返済額のほうが大きくなります。"
+              : "指定期間では同額です。"
+      };
+    }
+  }
+};
+
+
+let currentCalculator = null;
+
+
+function yen(value) {
+  return Math.round(value).toLocaleString("ja-JP") + " 円";
+}
+
+
+function loanResult(principal, annualRate, years) {
+  const months = Math.round(years * 12);
+  const monthlyRate = annualRate / 100 / 12;
+
+  let payment;
+
+  if (monthlyRate === 0) {
+    payment = principal / months;
+  } else {
+    payment =
+      principal *
+      monthlyRate *
+      Math.pow(1 + monthlyRate, months) /
+      (Math.pow(1 + monthlyRate, months) - 1);
+  }
+
+  const total = payment * months;
+
+  return {
+    result: `毎月返済額 ${yen(payment)}`,
+    note: `総返済額の目安 ${yen(total)}。元利均等返済・ボーナス返済なしで計算しています。`
+  };
+}
+
+
+function openCalc(type) {
+  const calc = calculators[type];
+  if (!calc) return;
+
+  currentCalculator = type;
+
+  document.getElementById("hpsCalcTitle").textContent = calc.title;
+  document.getElementById("hpsCalcDescription").textContent = calc.description;
+
+  const fields = document.getElementById("hpsCalcFields");
+  fields.innerHTML = "";
+
+  calc.fields.forEach(field => {
+    const wrapper = document.createElement("div");
+    wrapper.className = "hps-calc-field";
+
+    const label = document.createElement("label");
+    label.htmlFor = "hps-field-" + field.id;
+    label.textContent = field.label;
+
+    const input = document.createElement("input");
+    input.id = "hps-field-" + field.id;
+    input.name = field.id;
+    input.type = field.type;
+
+    if (field.min !== undefined) input.min = field.min;
+    if (field.max !== undefined) input.max = field.max;
+    if (field.step !== undefined) input.step = field.step;
+    if (field.value !== undefined) input.value = field.value;
+
+    if (field.type === "number") {
+      input.inputMode = "decimal";
+    }
+
+    wrapper.appendChild(label);
+    wrapper.appendChild(input);
+    fields.appendChild(wrapper);
+  });
+
+  document.getElementById("hpsCalcResult").classList.remove("is-visible");
+  document.getElementById("hpsCalcResultMain").textContent = "";
+  document.getElementById("hpsCalcNote").textContent = "";
+
+  document.getElementById("hpsCalcOverlay").classList.add("is-open");
+  document.body.style.overflow = "hidden";
+
+  const first = fields.querySelector("input");
+  if (first) {
+    setTimeout(() => first.focus(), 50);
+  }
+}
+
+
+function calculate(event) {
+  event.preventDefault();
+
+  if (!currentCalculator) return;
+
+  const calc = calculators[currentCalculator];
+  const values = {};
+
+  for (const field of calc.fields) {
+    const input = document.getElementById("hps-field-" + field.id);
+
+    if (field.type === "number") {
+      values[field.id] = Number(input.value);
+    } else {
+      values[field.id] = input.value;
+    }
+  }
+
+  const result = calc.calc(values);
+
+  document.getElementById("hpsCalcResultMain").textContent = result.result;
+  document.getElementById("hpsCalcNote").textContent = result.note;
+  document.getElementById("hpsCalcResult").classList.add("is-visible");
+}
+
+
+function closeCalc() {
+  document.getElementById("hpsCalcOverlay").classList.remove("is-open");
+  document.body.style.overflow = "";
+  currentCalculator = null;
+}
+
+
+function overlayClose(event) {
+  if (event.target === document.getElementById("hpsCalcOverlay")) {
+    closeCalc();
+  }
+}
+
+
+function activateCalc(event, type) {
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    openCalc(type);
+  }
+}
+
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape") {
+    closeCalc();
+  }
+});
+</script>
+
+</body>
+</html>
