@@ -1,1 +1,429 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="生活・お金・不動産に役立つ無料の計算ツール集。">
+  <title>HakuRo Project Studio｜生活・お金・不動産 計算ツール</title>
+  <style>
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+      background:#f6f7f9;
+      color:#20252b;
+      line-height:1.7
+    }
+    header{
+      background:#15181c;color:#fff;padding:28px 20px;
+      position:sticky;top:0;z-index:10
+    }
+    .header-inner{max-width:1100px;margin:auto}
+    .brand{font-size:13px;letter-spacing:.14em;opacity:.8}
+    header h1{margin:5px 0 4px;font-size:25px}
+    header p{margin:0;color:#cfd4da;font-size:14px}
+    nav{max-width:1100px;margin:18px auto 0;display:flex;gap:8px;flex-wrap:wrap}
+    nav a{
+      color:#fff;text-decoration:none;border:1px solid #454b52;
+      padding:7px 13px;border-radius:999px;font-size:13px
+    }
+    nav a:hover{background:#fff;color:#15181c}
+    main{max-width:1100px;margin:0 auto;padding:35px 20px 70px}
+    .intro{margin-bottom:28px}
+    .intro h2{margin:0 0 5px;font-size:27px}
+    .intro p{margin:0;color:#66707a}
+    section{margin-top:42px;scroll-margin-top:155px}
+    .section-title{
+      display:flex;align-items:end;justify-content:space-between;
+      gap:15px;margin-bottom:15px;border-bottom:2px solid #20252b;padding-bottom:8px
+    }
+    .section-title h2{margin:0;font-size:22px}
+    .section-title span{font-size:12px;color:#7b838c}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{
+      background:#fff;border:1px solid #e2e5e8;border-radius:14px;
+      padding:18px;box-shadow:0 3px 12px rgba(0,0,0,.04)
+    }
+    .card h3{margin:0 0 12px;font-size:17px}
+    .card label{display:block;font-size:13px;color:#59616a;margin-top:9px}
+    input,select{
+      width:100%;padding:10px 11px;margin-top:4px;
+      border:1px solid #cfd4da;border-radius:8px;font-size:15px;background:#fff
+    }
+    button{
+      width:100%;margin-top:13px;padding:10px;border:0;border-radius:8px;
+      background:#20252b;color:#fff;font-size:14px;cursor:pointer
+    }
+    button:hover{opacity:.88}
+    .result{
+      margin-top:12px;padding:10px 12px;border-radius:8px;
+      background:#f0f2f4;font-weight:700;min-height:42px
+    }
+    .note{font-size:11px;color:#7a828a;margin-top:8px}
+    footer{
+      background:#15181c;color:#aeb5bd;text-align:center;padding:28px 20px;font-size:12px
+    }
+    @media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){
+      header h1{font-size:21px}
+      .grid{grid-template-columns:1fr}
+      main{padding-left:14px;padding-right:14px}
+      section{scroll-margin-top:190px}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="brand">HAKURO PROJECT STUDIO</div>
+    <h1>生活・お金・不動産 計算ツール</h1>
+    <p>毎日の生活やお金、不動産に役立つ無料ツール</p>
+  </div>
+  <nav>
+    <a href="#life">生活用ツール</a>
+    <a href="#money">お金ツール</a>
+    <a href="#realestate">不動産ツール</a>
+  </nav>
+</header>
 
+<main>
+  <div class="intro">
+    <h2>無料計算ツール</h2>
+    <p>数字を入力するだけで、ざっくり目安を計算できます。</p>
+  </div>
+
+  <section id="life">
+    <div class="section-title">
+      <h2>生活用ツール</h2><span>Life</span>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3>日数計算</h3>
+        <label>開始日<input type="date" id="daysStart"></label>
+        <label>終了日<input type="date" id="daysEnd"></label>
+        <button onclick="calcDays()">計算する</button>
+        <div class="result" id="daysResult">結果がここに表示されます</div>
+      </div>
+
+      <div class="card">
+        <h3>年齢計算</h3>
+        <label>生年月日<input type="date" id="birth"></label>
+        <label>基準日<input type="date" id="ageDate"></label>
+        <button onclick="calcAge()">計算する</button>
+        <div class="result" id="ageResult">結果がここに表示されます</div>
+      </div>
+
+      <div class="card">
+        <h3>水道・光熱費計算</h3>
+        <label>電気代（月）<input type="number" id="electric" placeholder="10000"></label>
+        <label>ガス代（月）<input type="number" id="gas" placeholder="5000"></label>
+        <label>水道代（月）<input type="number" id="water" placeholder="4000"></label>
+        <button onclick="calcUtility()">計算する</button>
+        <div class="result" id="utilityResult">結果がここに表示されます</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="money">
+    <div class="section-title">
+      <h2>お金ツール</h2><span>Money</span>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3>ローン計算</h3>
+        <label>借入額（万円）<input type="number" id="loanAmount" value="3000"></label>
+        <label>年利（%）<input type="number" id="loanRate" value="1.5" step="0.01"></label>
+        <label>返済期間（年）<input type="number" id="loanYears" value="35"></label>
+        <button onclick="calcLoan('loan')">計算する</button>
+        <div class="result" id="loanResult">結果がここに表示されます</div>
+      </div>
+
+      <div class="card">
+        <h3>給料・手取り計算</h3>
+        <label>額面月収（円）<input type="number" id="salary" value="300000"></label>
+        <label>賞与年額（円）<input type="number" id="bonus" value="0"></label>
+        <label>控除率（%・概算）<input type="number" id="deduct" value="20"></label>
+        <button onclick="calcSalary()">計算する</button>
+        <div class="result" id="salaryResult">結果がここに表示されます</div>
+        <div class="note">税・社会保険等を簡易的に控除率で計算します。</div>
+      </div>
+
+      <div class="card">
+        <h3>貯蓄計算</h3>
+        <label>毎月の貯蓄額（円）<input type="number" id="saveMonthly" value="30000"></label>
+        <label>期間（年）<input type="number" id="saveYears" value="10"></label>
+        <button onclick="calcSaving()">計算する</button>
+        <div class="result" id="saveResult">結果がここに表示されます</div>
+      </div>
+
+      <div class="card">
+        <h3>複利計算</h3>
+        <label>元金（円）<input type="number" id="compoundPrincipal" value="1000000"></label>
+        <label>年利（%）<input type="number" id="compoundRate" value="3" step="0.1"></label>
+        <label>期間（年）<input type="number" id="compoundYears" value="10"></label>
+        <button onclick="calcCompound()">計算する</button>
+        <div class="result" id="compoundResult">結果がここに表示されます</div>
+      </div>
+
+      <div class="card">
+        <h3>積立計算</h3>
+        <label>毎月積立額（円）<input type="number" id="investMonthly" value="30000"></label>
+        <label>想定年利（%）<input type="number" id="investRate" value="3" step="0.1"></label>
+        <label>期間（年）<input type="number" id="investYears" value="20"></label>
+        <button onclick="calcInvestment()">計算する</button>
+        <div class="result" id="investResult">結果がここに表示されます</div>
+      </div>
+
+      <div class="card">
+        <h3>投資利回り計算</h3>
+        <label>投資額（円）<input type="number" id="yieldAmount" value="3000000"></label>
+        <label>年間利益（円）<input type="number" id="yieldProfit" value="150000"></label>
+        <button onclick="calcYield()">計算する</button>
+        <div class="result" id="yieldResult">結果がここに表示されます</div>
+      </div>
+
+      <div class="card">
+        <h3>老後資金計算</h3>
+        <label>毎月の不足額（円）<input type="number" id="retireMonthly" value="50000"></label>
+        <label>老後期間（年）<input type="number" id="retireYears" value="25"></label>
+        <button onclick="calcRetirement()">計算する</button>
+        <div class="result" id="retireResult">結果がここに表示されます</div>
+      </div>
+
+      <div class="card">
+        <h3>教育費計算</h3>
+        <label>年間教育費（円）<input type="number" id="eduAnnual" value="1000000"></label>
+        <label>必要年数（年）<input type="number" id="eduYears" value="6"></label>
+        <button onclick="calcEducation()">計算する</button>
+        <div class="result" id="eduResult">結果がここに表示されます</div>
+      </div>
+
+      <div class="card">
+        <h3>家計収支計算</h3>
+        <label>月収（円）<input type="number" id="income" value="300000"></label>
+        <label>毎月の支出（円）<input type="number" id="expense" value="250000"></label>
+        <button onclick="calcBudget()">計算する</button>
+        <div class="result" id="budgetResult">結果がここに表示されます</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="realestate">
+    <div class="section-title">
+      <h2>不動産ツール</h2><span>Real Estate</span>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3>住宅ローン返済計算</h3>
+        <label>借入額（万円）<input type="number" id="houseLoanAmount" value="4000"></label>
+        <label>年利（%）<input type="number" id="houseLoanRate" value="1" step="0.01"></label>
+        <label>返済期間（年）<input type="number" id="houseLoanYears" value="35"></label>
+        <button onclick="calcLoan('house')">計算する</button>
+        <div class="result" id="houseLoanResult">結果がここに表示されます</div>
+      </div>
+
+      <div class="card">
+        <h3>住宅購入予算計算</h3>
+        <label>自己資金（万円）<input type="number" id="ownFunds" value="500"></label>
+        <label>借入可能額（万円）<input type="number" id="borrowFunds" value="4000"></label>
+        <label>購入諸費用率（%）<input type="number" id="purchaseCostRate" value="7"></label>
+        <button onclick="calcPurchaseBudget()">計算する</button>
+        <div class="result" id="purchaseResult">結果がここに表示されます</div>
+        <div class="note">諸費用率は簡易的な目安です。</div>
+      </div>
+
+      <div class="card">
+        <h3>家賃・住宅ローン負担率</h3>
+        <label>月収（円）<input type="number" id="housingIncome" value="400000"></label>
+        <label>家賃・ローン月額（円）<input type="number" id="housingCost" value="100000"></label>
+        <button onclick="calcHousingBurden()">計算する</button>
+        <div class="result" id="housingBurdenResult">結果がここに表示されます</div>
+      </div>
+
+      <div class="card">
+        <h3>仲介手数料計算</h3>
+        <label>売買価格（万円）<input type="number" id="brokerPrice" value="3000"></label>
+        <button onclick="calcBroker()">計算する</button>
+        <div class="result" id="brokerResult">結果がここに表示されます</div>
+        <div class="note">簡易計算です。法令上の上限や特例等は別途確認してください。</div>
+      </div>
+
+      <div class="card">
+        <h3>不動産投資利回り</h3>
+        <label>購入価格（万円）<input type="number" id="propertyPrice" value="3000"></label>
+        <label>月額家賃（円）<input type="number" id="propertyRent" value="100000"></label>
+        <button onclick="calcPropertyYield()">計算する</button>
+        <div class="result" id="propertyYieldResult">結果がここに表示されます</div>
+      </div>
+
+      <div class="card">
+        <h3>賃貸 vs 購入</h3>
+        <label>家賃（月・円）<input type="number" id="rentMonthly" value="100000"></label>
+        <label>購入価格（万円）<input type="number" id="buyPrice" value="3500"></label>
+        <label>ローン月額（円）<input type="number" id="buyLoanMonthly" value="100000"></label>
+        <label>比較期間（年）<input type="number" id="compareYears" value="35"></label>
+        <button onclick="calcRentBuy()">計算する</button>
+        <div class="result" id="rentBuyResult">結果がここに表示されます</div>
+        <div class="note">税金・修繕費・売却価格などを除く簡易比較です。</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© HAKURO PROJECT STUDIO</p>
+  <p>当サイトの計算結果は参考値です。実際の税額・ローン条件・諸費用等とは異なる場合があります。</p>
+</footer>
+
+<script>
+  const yen = n => Math.round(n).toLocaleString('ja-JP') + '円';
+  const man = n => (Math.round(n * 10) / 10).toLocaleString('ja-JP') + '万円';
+  const pct = n => (Math.round(n * 100) / 100).toLocaleString('ja-JP') + '%';
+  const num = id => Number(document.getElementById(id).value) || 0;
+  const show = (id, text) => document.getElementById(id).textContent = text;
+
+  function calcDays(){
+    const a = new Date(document.getElementById('daysStart').value);
+    const b = new Date(document.getElementById('daysEnd').value);
+    if(isNaN(a) || isNaN(b)){ show('daysResult','日付を入力してください'); return; }
+    const days = Math.abs(Math.round((b-a)/86400000));
+    show('daysResult', days.toLocaleString('ja-JP') + '日');
+  }
+
+  function calcAge(){
+    const birth = new Date(document.getElementById('birth').value);
+    let base = document.getElementById('ageDate').value ? new Date(document.getElementById('ageDate').value) : new Date();
+    if(isNaN(birth)){ show('ageResult','生年月日を入力してください'); return; }
+    let age = base.getFullYear() - birth.getFullYear();
+    const beforeBirthday =
+      base.getMonth() < birth.getMonth() ||
+      (base.getMonth() === birth.getMonth() && base.getDate() < birth.getDate());
+    if(beforeBirthday) age--;
+    show('ageResult', age + '歳');
+  }
+
+  function calcUtility(){
+    const monthly = num('electric') + num('gas') + num('water');
+    show('utilityResult', '月額：' + yen(monthly) + ' ／ 年額：' + yen(monthly*12));
+  }
+
+  function monthlyPayment(principal, annualRate, years){
+    const n = years * 12;
+    const r = annualRate / 100 / 12;
+    if(n <= 0) return 0;
+    if(r === 0) return principal / n;
+    return principal * r * Math.pow(1+r,n) / (Math.pow(1+r,n)-1);
+  }
+
+  function calcLoan(type){
+    const prefix = type === 'house' ? 'houseLoan' : 'loan';
+    const result = type === 'house' ? 'houseLoanResult' : 'loanResult';
+    const principal = num(prefix+'Amount') * 10000;
+    const rate = num(prefix+'Rate');
+    const years = num(prefix+'Years');
+    const monthly = monthlyPayment(principal, rate, years);
+    show(result, '月々：約' + yen(monthly) + ' ／ 総返済：約' + yen(monthly*years*12));
+  }
+
+  function calcSalary(){
+    const monthly = num('salary');
+    const bonus = num('bonus');
+    const rate = num('deduct') / 100;
+    const annualGross = monthly*12 + bonus;
+    const annualTake = annualGross*(1-rate);
+    show('salaryResult', '年間手取り：約' + yen(annualTake) + ' ／ 月平均：約' + yen(annualTake/12));
+  }
+
+  function calcSaving(){
+    const total = num('saveMonthly') * num('saveYears') * 12;
+    show('saveResult', '貯蓄額：約' + yen(total));
+  }
+
+  function calcCompound(){
+    const p = num('compoundPrincipal');
+    const r = num('compoundRate')/100;
+    const y = num('compoundYears');
+    const total = p * Math.pow(1+r,y);
+    show('compoundResult', '元利合計：約' + yen(total) + ' ／ 利益：約' + yen(total-p));
+  }
+
+  function calcInvestment(){
+    const m = num('investMonthly');
+    const annual = num('investRate')/100;
+    const years = num('investYears');
+    const months = years*12;
+    const r = annual/12;
+    let total = 0;
+    if(r === 0) total = m*months;
+    else total = m * ((Math.pow(1+r,months)-1)/r);
+    show('investResult', '積立元本：' + yen(m*months) + ' ／ 評価額：約' + yen(total));
+  }
+
+  function calcYield(){
+    const amount = num('yieldAmount');
+    const profit = num('yieldProfit');
+    show('yieldResult', amount > 0 ? '利回り：約' + pct(profit/amount*100) : '投資額を入力してください');
+  }
+
+  function calcRetirement(){
+    show('retireResult', '必要資金：約' + yen(num('retireMonthly')*num('retireYears')*12));
+  }
+
+  function calcEducation(){
+    show('eduResult', '必要教育費：約' + yen(num('eduAnnual')*num('eduYears')));
+  }
+
+  function calcBudget(){
+    const balance = num('income') - num('expense');
+    show('budgetResult', '毎月の収支：' + yen(balance) + (balance >= 0 ? '（黒字）' : '（赤字）'));
+  }
+
+  function calcPurchaseBudget(){
+    const totalFunds = num('ownFunds') + num('borrowFunds');
+    const rate = num('purchaseCostRate')/100;
+    const maxPrice = totalFunds/(1+rate);
+    show('purchaseResult', '購入価格の目安：約' + man(maxPrice));
+  }
+
+  function calcHousingBurden(){
+    const income = num('housingIncome');
+    const cost = num('housingCost');
+    show('housingBurdenResult', income > 0 ? '負担率：約' + pct(cost/income*100) : '月収を入力してください');
+  }
+
+  function calcBroker(){
+    const price = num('brokerPrice') * 10000;
+    let fee;
+    if(price <= 2000000){
+      fee = price * 0.05;
+    }else if(price <= 4000000){
+      fee = 2000000*0.05 + (price-2000000)*0.04;
+    }else{
+      fee = 2000000*0.05 + 2000000*0.04 + (price-4000000)*0.03;
+    }
+    const withTax = fee * 1.10;
+    show('brokerResult', '仲介手数料（税込・概算）：約' + yen(withTax));
+  }
+
+  function calcPropertyYield(){
+    const price = num('propertyPrice')*10000;
+    const annualRent = num('propertyRent')*12;
+    show('propertyYieldResult', price > 0 ? '表面利回り：約' + pct(annualRent/price*100) : '購入価格を入力してください');
+  }
+
+  function calcRentBuy(){
+    const years = num('compareYears');
+    const rentTotal = num('rentMonthly') * years * 12;
+    const buyTotal = num('buyLoanMonthly') * years * 12;
+    const diff = rentTotal - buyTotal;
+    show('rentBuyResult',
+      '賃貸総額：約' + man(rentTotal/10000) +
+      ' ／ 購入ローン総額：約' + man(buyTotal/10000) +
+      ' ／ 差額：約' + man(Math.abs(diff)/10000) +
+      (diff >= 0 ? '（購入側が少ない）' : '（賃貸側が少ない）')
+    );
+  }
+</script>
+</body>
+</html>
